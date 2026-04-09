@@ -1,4 +1,4 @@
-package edu.itschool.abitpro.ui.theme.screens
+package edu.itschool.abitpro.ui.screen.list
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
