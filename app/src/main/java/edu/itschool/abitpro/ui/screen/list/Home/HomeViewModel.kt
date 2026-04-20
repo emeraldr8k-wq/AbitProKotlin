@@ -1,7 +1,8 @@
-package edu.itschool.abitpro.ui.screen.list
+package edu.itschool.abitpro.ui.screen.list.Home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import edu.itschool.abitpro.ui.screen.list.ListState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
