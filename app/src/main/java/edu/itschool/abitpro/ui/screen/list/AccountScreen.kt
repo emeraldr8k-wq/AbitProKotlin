@@ -4,10 +4,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun SearchScreen(
-    on_Click: () ->  Unit = {} //Todo
+fun AccountScreen(
+    onFavoritesClick: () ->  Unit = {}
 )
 {
-    Text("SearchScreen")
+    Text("AccountScreen")
 
 }
