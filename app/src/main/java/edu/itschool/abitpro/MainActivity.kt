@@ -4,19 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import edu.ITSchool.abitpro.AbitNavHost
+import edu.ITSchool.abitpro.AbitTabRowScreens
+import edu.ITSchool.abitpro.Home
 import edu.ITSchool.abitpro.theme.AppTheme
-import edu.itschool.abitpro.ui.theme.AbitProTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +30,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-
 @Composable
 fun AbitApp() {
     AppTheme {
@@ -39,7 +39,7 @@ fun AbitApp() {
         // Fetch your currentDestination:
         val currentDestination = currentBackStack?.destination
         // ...
-        val currentScreen = rallyTabRowScreens.find {
+        val currentScreen = AbitTabRowScreens.find {
             it.route == currentDestination?.route
         } ?: Home
         Scaffold(
@@ -62,7 +62,6 @@ fun AbitApp() {
                 navController = navController,
                 modifier = Modifier.padding(innerPadding)
             )
-            AbitBottomBar(navController)
 
 
         }
@@ -70,13 +69,32 @@ fun AbitApp() {
 }
 
 
-
 @Composable
-fun AbitBottomBar(navController: NavHostController){
-    BottomAppBar()
+fun AbitBottomBar(navController: NavHostController) {
+    val currentBackStack by navController.currentBackStackEntryAsState()
+    val curRoute = currentBackStack?.destination?.route
 
 
-//    TODO переменные
+    NavigationBar {
+        AbitTabRowScreens.forEach { screen ->
+            NavigationBarItem(
+                selected = curRoute == screen.route,
+                onClick = {
+                    navController.navigate(screen.route) {
+                        popUpTo(navController.graph.startDestinationId){
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                icon = {
+                    screen.icon
+                }
+            )
+        }
+
+    }
 
 
 }

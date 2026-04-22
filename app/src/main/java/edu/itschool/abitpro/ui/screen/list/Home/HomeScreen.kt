@@ -11,24 +11,23 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import edu.itschool.abitpro.ui.screen.list.ListState
 
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel = viewModel()
+//    viewModel: HomeViewModel = (viewModel())
 
 ) {
 
     Text(
         "HomeScreen"
     )
-    val state by viewModel.uiState.collectAsState()
-    when (state) {
-        is ListState.Content -> TODO()
-        is ListState.Error -> TODO()
-        is ListState.Loading -> TODO()
-    }
+//    val state by viewModel.uiState.collectAsState()
+//    when (state) {
+//        is ListState.Content -> TODO()
+//        is ListState.Error -> TODO()
+//        is ListState.Loading -> TODO()
+//    }
 
 
 }

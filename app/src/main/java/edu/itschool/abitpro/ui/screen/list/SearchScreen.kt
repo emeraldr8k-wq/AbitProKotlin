@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun SearchScreen(
-    on_Click: () ->  Unit = {} //Todo
+    onSearchClick: () ->  Unit = {} //Todo
 )
 {
     Text("SearchScreen")

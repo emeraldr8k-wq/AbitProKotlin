@@ -17,10 +17,10 @@
 package edu.ITSchool.abitpro
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AttachMoney
-import androidx.compose.material.icons.filled.Money
-import androidx.compose.material.icons.filled.MoneyOff
-import androidx.compose.material.icons.filled.PieChart
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Search
+
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
@@ -40,25 +40,25 @@ interface AbitDestination {
  * Abit app navigation destinations
  */
 object Home : AbitDestination {
-    override val icon = Icons.Filled.PieChart
+    override val icon = Icons.Filled.Home
     override val route = "homes"
 
 }
 
 object Account : AbitDestination {
-    override val icon = Icons.Filled.AttachMoney
+    override val icon = Icons.Filled.AccountCircle
     override val route = "account"
 
 }
 
 object Hello : AbitDestination {
-    override val icon = Icons.Filled.MoneyOff
+    override val icon = Icons.Filled.Home
     override val route = "hello"
 
 }
 
 object Search : AbitDestination {
-    override val icon = Icons.Filled.MoneyOff
+    override val icon = Icons.Filled.Search
     override val route = "search"
 
 }
@@ -66,7 +66,7 @@ object Search : AbitDestination {
 object SingleHei : AbitDestination {     //Todo экран для единичного вуза
     // Added for simplicity, this icon will not in fact be used, as SingleAccount isn't
     // part of the AbitTabRow selection
-    override val icon = Icons.Filled.Money
+    override val icon = Icons.Filled.Home
     override val route = "single_account"
     const val accountTypeArg = "account_type"
 

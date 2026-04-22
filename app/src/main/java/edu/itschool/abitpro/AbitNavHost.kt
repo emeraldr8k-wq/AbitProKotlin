@@ -6,12 +6,9 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compose.rally.ui.accounts.SingleAccountScreen
-import com.example.compose.rally.ui.bills.BillsScreen
-import com.example.compose.rally.ui.bills.SingleBillScreen
-import edu.ITSchool.abitpro.screens.AccountScreen
-import edu.ITSchool.abitpro.screens.HelloScreen
+import edu.itschool.abitpro.ui.screen.list.AccountScreen
 import edu.itschool.abitpro.ui.screen.list.Home.HomeScreen
+import edu.itschool.abitpro.ui.screen.list.SearchScreen
 
 @Composable
 fun AbitNavHost(
@@ -24,21 +21,21 @@ fun AbitNavHost(
         modifier = modifier
     ) {
         composable(route = Hello.route) {
-            HelloScreen(
-                onSearchClick = {
-                    navController.navigateSingleTopTo(Search.route)
-                }
-            )
+//            Helloscreen (
+////                onSearchClick = {
+////                    navController.navigateSingleTopTo(Search.route)
+////                }
+//            )
         }
         composable(route = Home.route) {
             HomeScreen(
-                onSearchClick = {
-                    navController.navigateSingleTopTo(Search.route)
-                }
+//                onSearchClick = {
+//                    navController.navigateSingleTopTo(Search.route)
+//                }
             )
         }
         composable(route = Search.route) {
-            HelloScreen(
+            SearchScreen(
                 onSearchClick = {
                     navController.navigateSingleTopTo(Search.route)
                 }
@@ -46,39 +43,39 @@ fun AbitNavHost(
         }
         composable(route = Account.route) {
             AccountScreen(
-                onFavoritesClick = { heiNumber ->               //TODO переход к вузу из избранного
-                    navController.navigateToSingleHei(heiNumber)
-                }
+//                onFavoritesClick = { heiNumber ->               //TODO переход к вузу из избранного
+//                    navController.navigateToSingleHei(heiNumber)
+//                }
             )
         }
         composable(
-            route = SingleAccount.routeWithArgs,
-            arguments = SingleAccount.arguments,
-            deepLinks = SingleAccount.deepLinks
+            route = SingleHei.routeWithArgs,
+            arguments = SingleHei.arguments,
+            deepLinks = SingleHei.deepLinks
         )
         { navBackStackEntry ->
             val accountType =
-                navBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
-            SingleAccountScreen(accountType)
+                navBackStackEntry.arguments?.getString(SingleHei.accountTypeArg)
+//            SingleHeiScreen(accountType)
         }
-        composable(route = Bills.route) {
-            BillsScreen(
-                onBillClick = { billType ->
-                    navController.navigateToSingleBill(billType)
-                }
-            )
-        }
-        composable(
-            route = SingleBill.routeWithArgs,
-            arguments = SingleBill.arguments
-
-        ) { navBackStackEntry ->
-            val billType =
-                navBackStackEntry.arguments?.getString(SingleBill.billTypeArg)
-            SingleBillScreen(billType)
-        }
+//        composable(route = Bills.route) {
+//            BillsScreen(
+//                onBillClick = { billType ->
+//                    navController.navigateToSingleBill(billType)
+//                }
+//            )
     }
+//        composable(
+//            route = SingleBill.routeWithArgs,
+//            arguments = SingleBill.arguments
+//
+//        ) { navBackStackEntry ->
+//            val billType =
+//                navBackStackEntry.arguments?.getString(SingleBill.billTypeArg)
+//            SingleBillScreen(billType)
+//        }
 }
+
 
 
 private fun NavHostController.navigateToSingleHei(heiNumber: String) {
@@ -95,8 +92,7 @@ fun NavHostController.navigateSingleTopTo(route: String) =
     }
 
 
-
-private fun NavHostController.navigateToSingleBill(billType: String) {
-    this.navigateSingleTopTo("${SingleBill.route}/$billType")
-}
+//private fun NavHostController.navigateToSingleBill(billType: String) {
+//    this.navigateSingleTopTo("${SingleBill.route}/$billType")
+//}
 
