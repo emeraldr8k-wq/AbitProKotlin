@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package edu.ITSchool.abitpro
+package edu.itschool.abitpro
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
-
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import androidx.navigation.navDeepLink
-import com.google.android.libraries.places.api.model.Money
 
 /**
  * Contract for information needed on every Abit navigation destination
@@ -47,7 +44,7 @@ object Home : AbitDestination {
 
 object Account : AbitDestination {
     override val icon = Icons.Filled.AccountCircle
-    override val route = "account"
+    override val route = "hei"
 
 }
 
@@ -64,24 +61,20 @@ object Search : AbitDestination {
 }
 
 object SingleHei : AbitDestination {     //Todo экран для единичного вуза
-    // Added for simplicity, this icon will not in fact be used, as SingleAccount isn't
+    // Added for simplicity, this icon will not in fact be used, as Singlehei isn't
     // part of the AbitTabRow selection
     override val icon = Icons.Filled.Home
-    override val route = "single_account"
-    const val accountTypeArg = "account_type"
+    override val route = "single_hei"
+    const val heiTypeArg = "hei_type"
 
-    val routeWithArgs = "${route}/{${accountTypeArg}}"
+    val routeWithArgs = "${route}/{heiId}"
     val arguments = listOf(
-        navArgument(accountTypeArg)
-        { type = NavType.StringType })
-    val deepLinks = listOf(navDeepLink{
-        uriPattern = "Abit://$route}/{${accountTypeArg}}"
-    })
+        navArgument(heiTypeArg)
+        { type = NavType.StringType }
+    )
 
 
 }
-
-
 
 
 // Screens to be displayed in the top AbitTabRow

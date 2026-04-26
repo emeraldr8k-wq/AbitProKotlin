@@ -14,10 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import edu.ITSchool.abitpro.AbitNavHost
-import edu.ITSchool.abitpro.AbitTabRowScreens
-import edu.ITSchool.abitpro.Home
-import edu.ITSchool.abitpro.theme.AppTheme
+import edu.itschool.abitpro.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +33,9 @@ fun AbitApp() {
         val navController = rememberNavController()
 
         val currentBackStack by navController.currentBackStackEntryAsState()
-        // Fetch your currentDestination:
+
         val currentDestination = currentBackStack?.destination
-        // ...
+
         val currentScreen = AbitTabRowScreens.find {
             it.route == currentDestination?.route
         } ?: Home
@@ -47,16 +44,6 @@ fun AbitApp() {
             bottomBar = {
                 AbitBottomBar(navController)
             }
-//            topBar = {
-//                RallyTabRow(
-//                    allScreens = rallyTabRowScreens,
-//                    onTabSelected = { newScreen ->
-//                        navController
-//                            .navigateSingleTopTo(newScreen.route)
-//                    },
-//                    currentScreen = currentScreen
-//                )
-//            }
         ) { innerPadding ->
             AbitNavHost(
                 navController = navController,

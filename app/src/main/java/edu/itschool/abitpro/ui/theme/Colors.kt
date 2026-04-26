@@ -1,4 +1,4 @@
-package edu.ITSchool.abitpro.theme
+package edu.itschool.abitpro.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
