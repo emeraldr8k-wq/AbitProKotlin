@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package edu.ITSchool.abitpro
+package edu.itschool.abitpro
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AttachMoney
-import androidx.compose.material.icons.filled.Money
-import androidx.compose.material.icons.filled.MoneyOff
-import androidx.compose.material.icons.filled.PieChart
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import androidx.navigation.navDeepLink
-import com.google.android.libraries.places.api.model.Money
 
 /**
  * Contract for information needed on every Abit navigation destination
@@ -40,48 +37,44 @@ interface AbitDestination {
  * Abit app navigation destinations
  */
 object Home : AbitDestination {
-    override val icon = Icons.Filled.PieChart
+    override val icon = Icons.Filled.Home
     override val route = "homes"
 
 }
 
 object Account : AbitDestination {
-    override val icon = Icons.Filled.AttachMoney
-    override val route = "account"
+    override val icon = Icons.Filled.AccountCircle
+    override val route = "hei"
 
 }
 
 object Hello : AbitDestination {
-    override val icon = Icons.Filled.MoneyOff
+    override val icon = Icons.Filled.Home
     override val route = "hello"
 
 }
 
 object Search : AbitDestination {
-    override val icon = Icons.Filled.MoneyOff
+    override val icon = Icons.Filled.Search
     override val route = "search"
 
 }
 
 object SingleHei : AbitDestination {     //Todo экран для единичного вуза
-    // Added for simplicity, this icon will not in fact be used, as SingleAccount isn't
+    // Added for simplicity, this icon will not in fact be used, as Singlehei isn't
     // part of the AbitTabRow selection
-    override val icon = Icons.Filled.Money
-    override val route = "single_account"
-    const val accountTypeArg = "account_type"
+    override val icon = Icons.Filled.Home
+    override val route = "single_hei"
+    const val heiTypeArg = "hei_type"
 
-    val routeWithArgs = "${route}/{${accountTypeArg}}"
+    val routeWithArgs = "${route}/{heiId}"
     val arguments = listOf(
-        navArgument(accountTypeArg)
-        { type = NavType.StringType })
-    val deepLinks = listOf(navDeepLink{
-        uriPattern = "Abit://$route}/{${accountTypeArg}}"
-    })
+        navArgument(heiTypeArg)
+        { type = NavType.StringType }
+    )
 
 
 }
-
-
 
 
 // Screens to be displayed in the top AbitTabRow

@@ -6,29 +6,22 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import edu.itschool.abitpro.ui.screen.list.ListState
 
 
 @Composable
-fun HomeScreen(
-    viewModel: HomeViewModel = viewModel()
-
-) {
+fun HomeScreen(onSearchClick: () -> Unit) {
 
     Text(
         "HomeScreen"
     )
-    val state by viewModel.uiState.collectAsState()
-    when (state) {
-        is ListState.Content -> TODO()
-        is ListState.Error -> TODO()
-        is ListState.Loading -> TODO()
-    }
+//    val state by viewModel.uiState.collectAsState()
+//    when (state) {
+//        is ListState.Content -> TODO()
+//        is ListState.Error -> TODO()
+//        is ListState.Loading -> TODO()
+//    }
 
 
 }
