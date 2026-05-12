@@ -20,7 +20,7 @@ fun AbitNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Home.route,
+        startDestination = Hello.route,
         modifier = modifier
     )
 
@@ -28,8 +28,11 @@ fun AbitNavHost(
         composable(route = Hello.route) {
             HelloScreen(
                 onSearchClick = {
-                    navController.navigateSingleTopTo(Search.route)
-                })
+                    navController.navigateSingleTopTo(Home.route)      //TODO заменить на Search
+                }
+            )
+
+
         }
         composable(route = Home.route) {
             HomeScreen(

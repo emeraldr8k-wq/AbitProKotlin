@@ -2,15 +2,20 @@ package edu.itschool.abitpro.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val LBackground1 = Color(0xFF1d2b38)
+val LForeground1 = Color(0xFF536672)
 
-val Green = Color(0xFF00FF1E)
-val Yellow = Color(0xFFFFF600)
-val Red = Color(0xFFFF0000)
+val LWhite1  = Color(0xFFffffff)
+val LGreen1  = Color(0xFF00ff1e)
+val LYellow1 = Color(0xFFfff600)
+val LRed1    = Color(0xFFff0000)
 
-val White = Color(0xFFFFFFFF)
-val Checkbox = Color(0xFF536672)
-val Foreground = Color(0xFF2B3B48)
-val Background1 = Color(0xFF1D2B38)
-val Background2 = Color(0xFF1E1E1E)
+
+val DBackground1  = Color(0xFFc5fff8)
+val DForeground1  = Color(0xFF5ea0c9)
+
+val DGreen1  = Color(0xFF00ff1e)
+val DYellow1 = Color(0xFFdfd800)
+val DRed1    = Color(0xFFff0000)
 
 
