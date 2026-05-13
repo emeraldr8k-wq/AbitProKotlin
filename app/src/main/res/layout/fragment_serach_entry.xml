@@ -31,10 +31,10 @@
             android:background="@drawable/search_entry_left">
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/serachByName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
@@ -46,20 +46,20 @@
         </LinearLayout>
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/imageButton"
+        <FrameLayout
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
-            android:background="@drawable/search_entry_right"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:text=""
-            app:icon="@drawable/image_search"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconSize="28dp" />
+            android:background="@drawable/search_entry_right">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/image_search"
+                android:scaleType="centerInside"
+                android:padding="6dp" />
+        </FrameLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

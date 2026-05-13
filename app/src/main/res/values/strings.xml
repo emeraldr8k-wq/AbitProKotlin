@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AbitPro</string>
+    <string name="search_entry_text">Искать ВУЗ по названию</string>
 </resources>
