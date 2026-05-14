@@ -12,6 +12,7 @@
     <!--custom colors-->
     <!--light colors-->
     <color name="DBackground1">#FF1d2b38</color>
+    <color name="DBackground2">#FF2b3b48</color>
     <color name="DForeground1">#FF536672</color>
     <color name="DWhite1">#FFffffff</color>
     <color name="DGreen1">#FF00ff1e</color>
