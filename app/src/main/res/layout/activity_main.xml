@@ -29,8 +29,8 @@
 
         />
     <include layout="@layout/prefab_result"/>
-
-
-
+    <include layout="@layout/prefab_result"/>
+    <include layout="@layout/prefab_result"/>
+    <include layout="@layout/prefab_bottom_bar"/>
 
 </LinearLayout>
