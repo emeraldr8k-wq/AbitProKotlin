@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import edu.itschool.abitpro.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class result_activity extends AppCompatActivity {
 private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
