@@ -11,8 +11,8 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@drawable/bottom_bar_background"
-        android:layout_margin="11dp"
-        android:padding="11dp"
+        android:layout_margin="6dp"
+        android:padding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -20,38 +20,39 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttomButton1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="5dp"
             android:background="@drawable/bottom_bar_button_background"
-            app:backgroundTint="@null"
-            app:icon="@drawable/image_profile"
-            app:iconTint="@android:color/white"
-            app:iconSize="28dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:padding="12dp"/>
+            android:padding="0dp"
+            app:backgroundTint="@null"
+            app:icon="@drawable/image_profile"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/DWhite1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttomButton2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="6"
             android:layout_marginStart="6dp"
             android:background="@drawable/bottom_bar_button_background"
             app:backgroundTint="@null"
             android:text="@string/search"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
             app:icon="@drawable/image_search"
             app:iconGravity="textEnd"
             app:iconPadding="8dp"
-            app:iconTint="@android:color/white"
-            app:iconSize="24dp"
+            app:iconTint="@color/DWhite1"
+            app:iconSize="18dp"
             android:gravity="center"
             android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:padding="12dp" />
+            android:insetBottom="0dp" />
 
     </LinearLayout>
 

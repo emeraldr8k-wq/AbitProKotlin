@@ -1,8 +1,29 @@
 <resources>
+    <string name="default1">num</string>
+    <string name="default2">Default text</string>
+    <string name="default3">DEFAULT _____ TEXT _____ 3</string>
+
     <string name="app_name">AbitPro</string>
     <string name="search_entry_text">Искать ВУЗ по названию</string>
     <string name="search_result">Результаты поиска:</string>
-    <string name="search">поиск</string>>
+    <string name="search">поиск    </string>>
     <string name="value">балл:</string>
     <string name="places">мест:</string>
+    <string name="way">Направления:</string>
+
+    <string name="value_free">Проходной балл на бюджет</string>
+    <string name="value_paid">Проходной балл на платное</string>
+
+    <string name="places_free">Количество бюджетных мест</string>
+    <string name="places_paid">Количество платных мест</string>
+
+    <string name="cost_paid">Стоимость поступления</string>
+
+    <string name="intro_courses">Подготовительные курсы</string>
+    <string name="city">Город</string>
+    <string name="war_dep">Военная кафедра</string>
+
+    <string name="price_month">р/мес</string>
+    <string name="price_year" >р/год</string>
+
 </resources>
