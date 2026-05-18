@@ -135,7 +135,8 @@
                     <include
                         layout="@layout/value_num"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -152,7 +153,8 @@
                     <include
                         layout="@layout/value_num"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -178,7 +180,8 @@
                     <include
                         layout="@layout/value_num"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -195,7 +198,8 @@
                     <include
                         layout="@layout/value_num"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -212,7 +216,8 @@
                     <include
                         layout="@layout/value_num"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -223,6 +228,7 @@
                 android:background="@drawable/param_background"
                 android:gravity="center_vertical"
                 android:padding="11dp">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -230,10 +236,12 @@
                     android:text="@string/intro_courses"
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
+
                 <include
                     layout="@layout/value_price"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp" />
             </LinearLayout>
 
             <LinearLayout
