@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AbitPro">
         <activity
+            android:name=".activity_search"
+            android:exported="false"
+            android:theme="@style/Theme.AbitPro" />
+        <activity
             android:name=".vus_result_activity"
             android:exported="false" />
         <activity
