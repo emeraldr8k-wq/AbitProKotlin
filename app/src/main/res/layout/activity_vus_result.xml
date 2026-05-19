@@ -50,7 +50,7 @@
                         android:id="@+id/vuz_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="100dp"
                         android:text="@string/default3"
                         android:textColor="@color/DWhite1"
                         android:textSize="20sp" />

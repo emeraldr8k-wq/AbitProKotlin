@@ -29,32 +29,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="11dp"
-        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintBottom_toTopOf="@id/bottomBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="8dp">
-
-            <include layout="@layout/prefab_result" />
-            <include layout="@layout/prefab_result" />
-            <include layout="@layout/prefab_result" />
-            <include layout="@layout/prefab_result" />
-            <include layout="@layout/prefab_result" />
-            <include layout="@layout/prefab_result" />
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/prefab_result" />
 
     <include
         android:id="@+id/bottomBar"
