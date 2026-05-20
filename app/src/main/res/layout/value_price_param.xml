@@ -6,7 +6,7 @@
     android:background="@drawable/param_background2"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    tools:context=".vus_result_activity">
+    tools:context=".activity_vus_result">
 
     <EditText
         android:id="@+id/searchByName"
