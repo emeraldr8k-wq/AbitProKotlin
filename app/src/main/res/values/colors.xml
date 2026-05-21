@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="DBackground1">#FF1d2b38</color>
+    <color name="DBackground2">#FF2b3b48</color>
+    <color name="DForeground1">#FF536672</color>
+    <color name="DWhite1">#FFffffff</color>
+    <color name="DGreen1">#FF00ff1e</color>
+    <color name="DYellow1">#FFfff600</color>
+    <color name="DRed1">#FFff0000</color>
+
+    <color name="background_dark">#FF1d2b38</color>
+    <color name="LBackground1">#FFc5fff8</color>
+    <color name="LForeground1">#FF5ea0c9</color>
+    <color name="LGreen1">#FF00ff1e</color>
+    <color name="LYellow1">#FFdfd800</color>
+    <color name="LRed1">#FFff0000</color>
 </resources>
