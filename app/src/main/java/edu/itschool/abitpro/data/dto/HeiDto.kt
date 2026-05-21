@@ -9,4 +9,4 @@ data class HeiDto (
     val rating : Int = -1,
     val military : Boolean = false,
     val militaryFromCourse : Int = -1
-)
+): java.io.Serializable

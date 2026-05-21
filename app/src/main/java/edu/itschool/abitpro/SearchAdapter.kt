@@ -1,6 +1,7 @@
 package edu.itschool.abitpro
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ class SearchAdapter(
         parent: ViewGroup,
         viewType: Int
     ): SearchViewHolder {
+        Log.e("Info9", "create")
+
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.prefab_result, parent, false)
 
@@ -46,6 +49,9 @@ class SearchAdapter(
 //            paidBall.text = item.paidBall
 //            paidPlace.text = item.paidPlace
             itemView.setOnClickListener{
+
+                Log.i("Info9", "bind")
+
                 onItemClick(item)
             }
 
