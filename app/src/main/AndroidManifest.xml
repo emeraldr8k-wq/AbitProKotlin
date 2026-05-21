@@ -12,20 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AbitPro">
         <activity
-            android:name=".activity_intro"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AbitPro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity_search"
             android:exported="false"
             android:theme="@style/Theme.AbitPro" />
         <activity
-            android:name=".activity_vus_result"
+            android:name=".vus_result_activity"
             android:exported="false" />
         <activity
-            android:name=".activity_result"
+            android:name=".result_activity"
             android:exported="false"
             android:theme="@style/Theme.AbitPro" />
-
     </application>
 
 </manifest>
