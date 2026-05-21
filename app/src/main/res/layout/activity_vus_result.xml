@@ -126,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
                     <TextView
+                        android:id="@+id/singl_budg_ball"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -144,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
                     <TextView
+                        android:id="@+id/singl_budg_place"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -188,6 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -195,6 +198,7 @@
                         android:text="@string/places_paid"
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
+
                     <include
                         layout="@layout/value_num"
                         android:layout_width="100dp"
