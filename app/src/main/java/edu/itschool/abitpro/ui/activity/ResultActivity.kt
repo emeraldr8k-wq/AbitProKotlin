@@ -2,6 +2,7 @@ package edu.itschool.abitpro.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +50,7 @@ import edu.itschool.abitpro.databinding.ActivityResultBinding
             adapter?.submitList(UniversityRepository.universityList)
 
         } else {
-            binding.searchRes.text = "нема совсем"
+            Log.i("Info9", "UniversityRepository.universityList = null")
         }
     }
 }
