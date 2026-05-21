@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main"
         android:background="@drawable/param_background2"
-        tools:context=".vus_result_activity"
+        tools:context=".activity_vus_result"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

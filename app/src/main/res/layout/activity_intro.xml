@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_intro"
+
+    android:background="@color/DBackground1">
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/intro_background"
+        android:orientation="vertical"
+        android:paddingVertical="22dp"
+        android:paddingHorizontal="22dp">
+        <TextView
+            android:id="@+id/textLetsStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="@string/lets_start"
+            android:textColor="@color/DWhite1"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/searchEntry" />
+        <TextView
+            android:id="@+id/textIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/intro_text"
+            android:textColor="@color/DWhite1"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/searchEntry" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bottomButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/intro_background2"
+            app:backgroundTint="@null"
+            android:text="@string/start_search"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+</LinearLayout>

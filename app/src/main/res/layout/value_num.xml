@@ -10,4 +10,4 @@
     android:text="@string/default1"
     android:textColor="@color/DWhite1"
     android:textSize="12sp"
-    tools:context=".vus_result_activity" />
+    tools:context=".activity_vus_result" />
