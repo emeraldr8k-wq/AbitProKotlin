@@ -1,29 +1,17 @@
-package edu.itschool.abitpro;
+package edu.itschool.abitpro
 
-import android.os.Bundle;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ui.AppBarConfiguration
+import edu.itschool.abitpro.databinding.ActivitySearchBinding
 
-import com.google.android.material.snackbar.Snackbar;
+class activity_search : AppCompatActivity() {
+    private val appBarConfiguration: AppBarConfiguration? = null
+    private var binding: ActivitySearchBinding? = null
 
-import androidx.appcompat.app.AppCompatActivity;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import edu.itschool.abitpro.databinding.ActivitySearchBinding;
-
-public class activity_search extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivitySearchBinding binding;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        binding = ActivitySearchBinding.inflate(getLayoutInflater());
+        binding = ActivitySearchBinding.inflate(getLayoutInflater())
     }
 }

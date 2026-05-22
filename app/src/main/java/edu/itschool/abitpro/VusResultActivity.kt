@@ -1,4 +1,4 @@
-package edu.itschool.abitpro.ui.activity
+package edu.itschool.abitpro
 
 import android.os.Bundle
 import android.util.Log

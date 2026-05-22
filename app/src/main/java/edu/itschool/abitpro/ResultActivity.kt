@@ -1,11 +1,10 @@
-package edu.itschool.abitpro.ui.activity
+package edu.itschool.abitpro
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import edu.itschool.abitpro.SearchAdapter
 import edu.itschool.abitpro.data.UniversityRepository
 import edu.itschool.abitpro.data.dto.HeiDto
 import edu.itschool.abitpro.databinding.ActivityResultBinding

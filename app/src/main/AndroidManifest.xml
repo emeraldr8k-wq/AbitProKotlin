@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AbitPro">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".activity_main"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AbitPro">
@@ -27,10 +27,10 @@
             android:exported="false"
             android:theme="@style/Theme.AbitPro" />
         <activity
-            android:name=".ui.activity.ResultActivity"
+            android:name=".ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.VusResultActivity"
+            android:name=".VusResultActivity"
             android:exported="false"
             android:theme="@style/Theme.AbitPro" />
     </application>
