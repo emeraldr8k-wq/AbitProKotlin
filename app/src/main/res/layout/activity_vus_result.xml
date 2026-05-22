@@ -73,6 +73,7 @@
                     android:textSize="16sp" />
 
                 <TableLayout
+                    android:id="@+id/ways_table"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -80,36 +81,23 @@
                     android:padding="4dp"
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
+                    <include layout="@layout/prefab_table_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp" />
 
-                    <TableRow android:layout_marginBottom="4dp">
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="4dp" />
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-                    </TableRow>
+                    <include layout="@layout/prefab_table_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp" />
 
-                    <TableRow android:layout_marginBottom="4dp">
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_span="2" />
-                    </TableRow>
-
-                    <TableRow>
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_span="2" />
-                    </TableRow>
+                    <include layout="@layout/prefab_table_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp" />
                 </TableLayout>
             </LinearLayout>
 
@@ -126,7 +114,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
                     <TextView
-                        android:id="@+id/singl_budg_ball"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -134,6 +121,7 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
+                        android:id="@+id/budg_ball_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -145,7 +133,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
                     <TextView
-                        android:id="@+id/singl_budg_place"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -153,6 +140,7 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
+                        android:id="@+id/budg_place_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -180,7 +168,7 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
-                        android:id="@+id/included_paid_ball"
+                        android:id="@+id/paid_ball_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -201,6 +189,7 @@
                         android:textSize="16sp" />
 
                     <include
+                        android:id="@+id/paid_places_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -219,6 +208,7 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
+                        android:id="@+id/paid_cost_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -243,6 +233,7 @@
                     android:textSize="16sp" />
 
                 <include
+                    android:id="@+id/courses_value"
                     layout="@layout/value_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -265,6 +256,7 @@
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
                 <include
+                    android:id="@+id/city_value"
                     layout="@layout/value_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -286,6 +278,7 @@
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
                 <include
+                    android:id="@+id/war_value"
                     layout="@layout/value_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
