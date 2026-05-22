@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/num"
     android:layout_width="100dp"
     android:layout_height="wrap_content"
@@ -9,5 +8,4 @@
     android:background="@drawable/param_background2"
     android:text="@string/default1"
     android:textColor="@color/DWhite1"
-    android:textSize="12sp"
-    tools:context=".activity_vus_result" />
+    android:textSize="12sp"/>
