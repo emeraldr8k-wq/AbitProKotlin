@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bottomButton1"
+            android:id="@+id/bottomButton_profile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -32,10 +32,10 @@
             app:icon="@drawable/image_profile"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
-            app:iconTint="@color/DWhite1" />
+            app:iconTint="@color/DWhite1"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bottomButton2"
+            android:id="@+id/bottomButton_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"

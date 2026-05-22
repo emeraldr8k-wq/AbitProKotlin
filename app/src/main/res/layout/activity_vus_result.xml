@@ -212,7 +212,7 @@
                         android:textSize="16sp" />
                     <include
                         android:id="@+id/paid_cost_value"
-                        layout="@layout/value_num"
+                        layout="@layout/value_price"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp" />

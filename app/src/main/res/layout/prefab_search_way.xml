@@ -8,7 +8,6 @@
 
 
     <LinearLayout
-        android:id="@+id/searchEntryLayout"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +27,7 @@
             android:padding="5dp">
 
             <EditText
-                android:id="@+id/searchByName"
+                android:id="@+id/search_way_entry"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="12dp"
@@ -50,7 +49,7 @@
             android:background="@drawable/search_entry_way">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/search_way_button_add"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackgroundBorderless"

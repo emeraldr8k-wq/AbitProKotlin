@@ -7,7 +7,7 @@
     android:gravity="center_vertical">
 
     <EditText
-        android:id="@+id/searchByName"
+        android:id="@+id/price_param"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:autofillHints="name"
@@ -26,6 +26,7 @@
         android:layout_gravity="end"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:paddingStart="0dp"
         android:paddingEnd="5dp"
         android:gravity="center"
         android:text="@string/price_month"
