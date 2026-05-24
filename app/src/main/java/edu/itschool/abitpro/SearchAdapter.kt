@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import edu.itschool.abitpro.SearchAdapter.SearchViewHolder
-import edu.itschool.abitpro.data.dto.HeiDto
+import edu.itschool.abitpro.domain.model.Hei
 
 class SearchAdapter(
-    private val onItemClick: (HeiDto) -> Unit
-) : ListAdapter<HeiDto, SearchViewHolder>(DiffCallback()) {
+    private val onItemClick: (Hei) -> Unit
+) : ListAdapter<Hei, SearchViewHolder>(DiffCallback()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -42,7 +42,7 @@ class SearchAdapter(
 
         private val paidPlace: TextView = itemView.findViewById(R.id.paid_place)
 
-        fun bind(item: HeiDto, onItemClick: (HeiDto) -> Unit) {
+        fun bind(item: Hei, onItemClick: (Hei) -> Unit) {
             titleText.text = item.name
 //            budgBall.text = item.budgBall               //todo бюджетный балл
 //            budgPlace.text = item.budgPlace
@@ -61,17 +61,17 @@ class SearchAdapter(
     }
 
 
-    class DiffCallback : DiffUtil.ItemCallback<HeiDto>() {
+    class DiffCallback : DiffUtil.ItemCallback<Hei>() {
         override fun areItemsTheSame(
-            oldItem: HeiDto,
-            newItem: HeiDto
+            oldItem: Hei,
+            newItem: Hei
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: HeiDto,
-            newItem: HeiDto
+            oldItem: Hei,
+            newItem: Hei
         ): Boolean {
             return oldItem == newItem
         }

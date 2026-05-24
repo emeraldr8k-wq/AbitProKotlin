@@ -23,6 +23,7 @@ import edu.itschool.abitpro.databinding.ActivityResultBinding
         this.enableEdgeToEdge()
         setContentView(binding.root)
         UniversityRepository.loadUniversities(this)
+        Log.i("CheckData", "Размер списка в репозитории: ${UniversityRepository.universityList.size}")
 
 
 //todo
@@ -30,7 +31,7 @@ import edu.itschool.abitpro.databinding.ActivityResultBinding
             val vusIntent = Intent(
                 this,
                 VusResultActivity::class.java
-            ).apply { putExtra("UNIVERSITY", clickedItem) }
+            ).apply { putExtra("UNIVERSITY_ID", clickedItem.id)  }
             startActivity(vusIntent)
 
 

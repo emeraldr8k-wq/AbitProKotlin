@@ -201,6 +201,7 @@
                         android:textSize="16sp" />
 
                     <include
+                        android:id="@+id/included_paid_place"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"

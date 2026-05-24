@@ -4,11 +4,12 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import edu.itschool.abitpro.data.dto.HeiDto
+import edu.itschool.abitpro.domain.model.Hei
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 
 object UniversityRepository {
-    var universityList: List<HeiDto> = emptyList()
+    var universityList: List<Hei> = emptyList()
         private set
 
     fun loadUniversities(context: Context) {

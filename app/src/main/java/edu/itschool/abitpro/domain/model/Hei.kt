@@ -1,7 +1,7 @@
 package edu.itschool.abitpro.domain.model
 
 data class Hei(
-    val id: Int,   //под вопросом, для навигации сделано String
+    val id: Int,
     val name: String,
     val city: String = "",
     val description: String = "",
