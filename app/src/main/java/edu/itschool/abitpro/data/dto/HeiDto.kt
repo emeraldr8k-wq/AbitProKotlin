@@ -9,6 +9,7 @@ data class HeiDto(
     val description: String,
     val officialWebsite: String,
     val rating: Int,
+    @SerializedName("military")
     val isMilitary: Boolean,
     val militaryFromCourse: Int,
 

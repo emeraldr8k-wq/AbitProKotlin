@@ -19,3 +19,7 @@ fun HeiDto.toHei(): Hei {
         cost = -1
     )
 }
+
+fun List<HeiDto>.toHeiList(): List<Hei> {
+    return this.map { it.toHei() }
+}
