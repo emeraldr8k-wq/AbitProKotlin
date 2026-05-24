@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/param_background2"
     android:orientation="horizontal"
-    android:gravity="center_vertical"
-    tools:context=".activity_vus_result">
+    android:gravity="center_vertical">
 
     <EditText
-        android:id="@+id/searchByName"
+        android:id="@+id/price_param"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:autofillHints="name"
@@ -28,6 +26,7 @@
         android:layout_gravity="end"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:paddingStart="0dp"
         android:paddingEnd="5dp"
         android:gravity="center"
         android:text="@string/price_month"

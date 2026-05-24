@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/DBackground1"
-    tools:context=".activity_vus_result">
+    tools:context=".VusResultActivity">
 
     <include
         android:id="@+id/searchEntry"
@@ -17,15 +19,13 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginBottom="11dp"
         android:fillViewport="true"
         android:padding="11dp"
-        app:layout_constraintTop_toBottomOf="@id/searchEntry"
-        app:layout_constraintBottom_toTopOf="@id/bottomBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                     android:padding="11dp">
 
                     <TextView
-                        android:id="@+id/vuz_name"
+                        android:id="@+id/vuz_name_value"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="100dp"
@@ -73,6 +73,7 @@
                     android:textSize="16sp" />
 
                 <TableLayout
+                    android:id="@+id/ways_table"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -80,36 +81,26 @@
                     android:padding="4dp"
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
+                    <include layout="@layout/prefab_table_2"
+                        android:id="@+id/table2_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp" />
 
-                    <TableRow android:layout_marginBottom="4dp">
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="4dp" />
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-                    </TableRow>
+                    <include layout="@layout/prefab_table_1"
+                        android:id="@+id/table1_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp" />
 
-                    <TableRow android:layout_marginBottom="4dp">
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_span="2" />
-                    </TableRow>
-
-                    <TableRow>
-                        <include
-                            layout="@layout/value_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_span="2" />
-                    </TableRow>
+                    <include layout="@layout/prefab_table_1"
+                        android:id="@+id/table1_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp" />
                 </TableLayout>
             </LinearLayout>
 
@@ -134,6 +125,7 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
+                        android:id="@+id/budg_ball_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -153,6 +145,7 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
+                        android:id="@+id/budg_place_value"
                         layout="@layout/value_num"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
@@ -220,7 +213,8 @@
                         android:textColor="@color/DWhite1"
                         android:textSize="16sp" />
                     <include
-                        layout="@layout/value_num"
+                        android:id="@+id/paid_cost_value"
+                        layout="@layout/value_price"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp" />
@@ -244,6 +238,7 @@
                     android:textSize="16sp" />
 
                 <include
+                    android:id="@+id/courses_value"
                     layout="@layout/value_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -266,6 +261,7 @@
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
                 <include
+                    android:id="@+id/city_value"
                     layout="@layout/value_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -287,6 +283,7 @@
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
                 <include
+                    android:id="@+id/war_value"
                     layout="@layout/value_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -301,4 +298,4 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
