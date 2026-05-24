@@ -15,7 +15,8 @@ class VusResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val heiId = intent.getIntExtra("UNIVERSITIES_ID", -1)
+        val heiId = intent.getIntExtra("UNIVERSITY_ID", -1)
+        Log.i("Info9", "HeiId =  ${heiId}")
 
 
 
@@ -24,8 +25,7 @@ class VusResultActivity : AppCompatActivity() {
 
             var selectedHei = UniversityRepository.universityList.find { it.id == heiId }
 
-            // ЗАГЛУШКА ДЛЯ ТЕСТА: Если в репозитории пусто, создаем этот вуз прямо здесь по ID,
-            // чтобы фронтенд-часть работала прямо сейчас!
+
             if (selectedHei == null) {
                 selectedHei = Hei(
                     id = heiId,
@@ -33,25 +33,34 @@ class VusResultActivity : AppCompatActivity() {
                     city = "Москва",
                     description = "Успешный переход! Данные подтянулись по ID: $heiId",
                     "",
+                    emptyList(),
                     7,
-                    true,
                     4
                 )
             }
 
 
             selectedHei.let { hei ->
-                binding.vuzName.text = hei?.name
-                binding.singlBudgBall.text = hei?.budgBall.toString()
-                binding.singlBudgPlace.text = hei?.budgPlace.toString()
-                findViewById<TextView>(R.id.included_paid_ball).text = hei?.paidBall.toString()
-                findViewById<TextView>(R.id.included_paid_place).text = hei?.paidPlace.toString()
+                Log.i("Info9", "дошли")
+                binding.vuzNameValue.text = hei?.name
+                binding.budgBallValue.root.text = hei?.freePassingGrade.toString()
+                binding.budgPlaceValue.root.text = hei?.freePlace.toString()
+                binding.includedPaidBall.root.text = hei?.payPassingGrade.toString()
+                binding.includedPaidPlace.root.text = hei?.payPlace.toString()
+                binding.paidCostValue.root.text = hei?.cost.toString()
+                binding.coursesValue.root.text = hei?.rating.toString()
+                binding.cityValue.root.text = hei?.city
 
 
-                //todo вписать айди из биндинга, с сервером
 
 
-//                findViewById<TextView>(R.id.paidPlace).text = hei.paidPlace
+
+
+
+                //todo 3 направления
+
+
+
 
 
             }

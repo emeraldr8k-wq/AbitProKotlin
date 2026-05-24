@@ -8,6 +8,7 @@ data class Hei(
     val web: String = "",
     val programs: List<String> = emptyList(),
     val freePassingGrade: Int = -1,
+    val rating: Int = -1,
     val freePlace: Int = -1,
     val payPassingGrade: Int = -1,
     val payPlace: Int = -1,

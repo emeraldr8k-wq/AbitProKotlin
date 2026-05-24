@@ -22,7 +22,7 @@ import edu.itschool.abitpro.databinding.ActivityResultBinding
         this.enableEdgeToEdge()
         setContentView(binding.root)
         UniversityRepository.loadUniversities(this)
-        Log.i("CheckData", "Размер списка в репозитории: ${UniversityRepository.universityList.size}")
+        Log.i("Info9", "Размер списка в репозитории: ${UniversityRepository.universityList.size}")
 
 
 //todo
@@ -45,12 +45,12 @@ import edu.itschool.abitpro.databinding.ActivityResultBinding
         recyclerView = binding.recyclerView
         recyclerView?.setAdapter(adapter)
 
-        if (UniversityRepository.universityList != null) { //Condition is always 'true'.
+//        if (UniversityRepository.universityList != emptyList()) { //Condition is always 'true'.
 
             adapter?.submitList(UniversityRepository.universityList)
 
-        } else {
-            Log.i("Info9", "UniversityRepository.universityList = null")
-        }
+//        } else {
+//            Log.i("Info9", "UniversityRepository.universityList = null")
+//        }
     }
 }

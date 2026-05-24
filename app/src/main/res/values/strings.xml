@@ -27,7 +27,7 @@
     <string name="places_free">Количество бюджетных мест</string>
     <string name="places_paid">Количество платных мест</string>
 
-    <string name="cost_paid">Стоимость поступления</string>
+    <string name="cost_paid">Стоимость обучения, руб/мес</string>
 
     <string name="intro_courses">Подготовительные курсы</string>
     <string name="city">Город</string>

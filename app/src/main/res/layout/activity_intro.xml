@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_intro"
+    tools:context=".IntroActivity"
 
     android:background="@color/DBackground1">
     <LinearLayout android:layout_height="wrap_content"

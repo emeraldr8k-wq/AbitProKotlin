@@ -1,9 +1,11 @@
 package edu.itschool.abitpro.data
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import edu.itschool.abitpro.data.dto.HeiDto
+import edu.itschool.abitpro.data.mapper.toHei
 import edu.itschool.abitpro.domain.model.Hei
 import java.io.IOException
 import java.nio.charset.StandardCharsets
@@ -24,9 +26,12 @@ object UniversityRepository {
 
             val gson = Gson()
             val listType = object : TypeToken<List<HeiDto>>() {}.type
-            universityList = gson.fromJson(jsonString, listType)
-        } catch (e: IOException) {
-            e.printStackTrace()
+            val dtoHei: List<HeiDto> = gson.fromJson(jsonString, listType)
+            universityList = dtoHei.map{it.toHei()}
+            Log.i("Info9", "Данные успешно загружены! Размер: ${universityList.size}")
+        } catch (e: Exception) {
+            Log.e("Info9", "Ошибка при чтении или парсинге JSON!", e)
+
         }
 
     }

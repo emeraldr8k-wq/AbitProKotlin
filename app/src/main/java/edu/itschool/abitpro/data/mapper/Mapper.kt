@@ -10,6 +10,7 @@ fun HeiDto.toHei(): Hei {
         city = city,
         description = description,
         web = officialWebsite,
+        rating = rating,
         programs = emptyList(),
         freePassingGrade = budgBall,
         freePlace = budgPlace,

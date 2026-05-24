@@ -19,7 +19,7 @@ class SearchAdapter(
         parent: ViewGroup,
         viewType: Int
     ): SearchViewHolder {
-        Log.e("Info9", "create")
+        Log.i("Info9", "onCreateViewHolder")
 
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.prefab_result, parent, false)
@@ -44,10 +44,10 @@ class SearchAdapter(
 
         fun bind(item: Hei, onItemClick: (Hei) -> Unit) {
             titleText.text = item.name
-//            budgBall.text = item.budgBall               //todo бюджетный балл
-//            budgPlace.text = item.budgPlace
-//            paidBall.text = item.paidBall
-//            paidPlace.text = item.paidPlace
+            budgBall.text = item.freePassingGrade.toString()               //todo бюджетный балл
+            budgPlace.text = item.freePlace.toString()
+            paidBall.text = item.payPassingGrade.toString()
+            paidPlace.text = item.payPlace.toString()
             itemView.setOnClickListener{
 
                 Log.i("Info9", "bind")

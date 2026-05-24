@@ -2,11 +2,11 @@ package edu.itschool.abitpro
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.ui.AppBarConfiguration
+
 import edu.itschool.abitpro.databinding.ActivitySearchBinding
 
-class activity_search : AppCompatActivity() {
-    private val appBarConfiguration: AppBarConfiguration? = null
+class SearchActivity : AppCompatActivity() {
+
     private var binding: ActivitySearchBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
