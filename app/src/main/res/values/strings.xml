@@ -20,6 +20,7 @@
     <string name="value">балл:</string>
     <string name="places">мест:</string>
     <string name="way">Направления:</string>
+    <string name="typing_way">Введите направление</string>
 
     <string name="value_free">Проходной балл на бюджет</string>
     <string name="value_paid">Проходной балл на платное</string>

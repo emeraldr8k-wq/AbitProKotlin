@@ -72,36 +72,38 @@
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
 
-                <TableLayout
+                <LinearLayout
+                    android:orientation="vertical"
                     android:id="@+id/ways_table"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="5dp"
-                    android:padding="4dp"
-                    android:shrinkColumns="*"
-                    android:stretchColumns="*">
-                    <include layout="@layout/prefab_table_1"
-                        android:id="@+id/table2_1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="4dp" />
-
-                    <include layout="@layout/prefab_table_1"
+                    android:padding="4dp">
+                    <include layout="@layout/value_text"
                         android:id="@+id/table1_1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginBottom="4dp" />
 
-                    <include layout="@layout/prefab_table_1"
+                    <include layout="@layout/value_text"
                         android:id="@+id/table1_2"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginBottom="4dp" />
-                </TableLayout>
+
+                    <include layout="@layout/value_text"
+                        android:id="@+id/table1_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp" />
+                    <include layout="@layout/value_text"
+                        android:id="@+id/table1_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
