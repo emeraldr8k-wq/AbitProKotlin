@@ -9,17 +9,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro)
+        setContentView(R.layout.activity_result)
 
 
         Log.i("Info9", "createMA")
 
         //test
-        val intent = Intent(
-            this,
-            ResultActivity::class.java
-        ).apply {}
-        startActivity(intent)
+//        val intent = Intent(
+//            this,
+//            ResultActivity::class.java
+//        ).apply {}
+//        startActivity(intent)
 
 
     }
