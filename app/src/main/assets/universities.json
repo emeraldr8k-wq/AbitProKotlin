@@ -5,9 +5,14 @@
     "city": "Москва",
     "description": "Ведущий классический университет России",
     "officialWebsite": "https://msu.ru",
-    "rating": 98,
-    "military": true,
-    "militaryFromCourse": 2
+    "militaryFromCourse": 2,
+    "budgBall": 265,
+    "budgPlace": 250,
+    "paidBall": 240,
+    "paidPlace": 135,
+    "introCoursesPrice": 15000,
+    "popularPrograms": "Прикладная математика, Физика, Химия, Биология",
+    "military": true
   },
   {
     "id": 2,
@@ -15,9 +20,14 @@
     "city": "Санкт-Петербург",
     "description": "Старейший университет России",
     "officialWebsite": "https://spbu.ru",
-    "rating": 95,
-    "military": true,
-    "militaryFromCourse": 2
+    "militaryFromCourse": 2,
+    "budgBall": 275,
+    "budgPlace": 160,
+    "paidBall": 255,
+    "paidPlace": 100,
+    "introCoursesPrice": 12000,
+    "popularPrograms": "Программная инженерия, Прикладная математика, Экономика, Юриспруденция",
+    "military": true
   },
   {
     "id": 3,
@@ -25,9 +35,14 @@
     "city": "Москва",
     "description": "Современный экономический университет",
     "officialWebsite": "https://hse.ru",
-    "rating": 94,
-    "military": false,
-    "militaryFromCourse": 0
+    "militaryFromCourse": 0,
+    "budgBall": 282,
+    "budgPlace": 135,
+    "paidBall": 260,
+    "paidPlace": 190,
+    "introCoursesPrice": 20000,
+    "popularPrograms": "Бизнес-информатика, Программная инженерия, Экономика, Менеджмент",
+    "military": false
   },
   {
     "id": 4,
@@ -35,9 +50,14 @@
     "city": "Долгопрудный",
     "description": "Физтех",
     "officialWebsite": "https://mipt.ru",
-    "rating": 97,
-    "military": true,
-    "militaryFromCourse": 3
+    "militaryFromCourse": 3,
+    "budgBall": 292,
+    "budgPlace": 115,
+    "paidBall": 272,
+    "paidPlace": 65,
+    "introCoursesPrice": 18000,
+    "popularPrograms": "Прикладная математика, Информатика, Физика, Биоинформатика",
+    "military": true
   },
   {
     "id": 5,
@@ -45,9 +65,14 @@
     "city": "Новосибирск",
     "description": "Университет в Академгородке",
     "officialWebsite": "https://nsu.ru",
-    "rating": 92,
-    "military": true,
-    "militaryFromCourse": 2
+    "militaryFromCourse": 2,
+    "budgBall": 275,
+    "budgPlace": 60,
+    "paidBall": 255,
+    "paidPlace": 30,
+    "introCoursesPrice": 10000,
+    "popularPrograms": "Фундаментальная информатика, Математика, Физика, Экономика",
+    "military": true
   },
   {
     "id": 6,
@@ -55,68 +80,13 @@
     "city": "Москва",
     "description": "Технический университет",
     "officialWebsite": "https://bmstu.ru",
-    "rating": 96,
-    "military": true,
-    "militaryFromCourse": 1
-  },
-  {
-    "id": 7,
-    "name": "МИФИ",
-    "city": "Москва",
-    "description": "Ядерный университет",
-    "officialWebsite": "https://mephi.ru",
-    "rating": 91,
-    "military": true,
-    "militaryFromCourse": 2
-  },
-  {
-    "id": 8,
-    "name": "РУДН",
-    "city": "Москва",
-    "description": "Университет дружбы народов",
-    "officialWebsite": "https://rudn.ru",
-    "rating": 88,
-    "military": false,
-    "militaryFromCourse": 0
-  },
-  {
-    "id": 9,
-    "name": "КФУ",
-    "city": "Казань",
-    "description": "Казанский федеральный университет",
-    "officialWebsite": "https://kpfu.ru",
-    "rating": 87,
-    "military": true,
-    "militaryFromCourse": 2
-  },
-  {
-    "id": 10,
-    "name": "ТГУ",
-    "city": "Томск",
-    "description": "Томский государственный университет",
-    "officialWebsite": "https://tsu.ru",
-    "rating": 89,
-    "military": true,
-    "militaryFromCourse": 2
-  },
-  {
-    "id": 11,
-    "name": "УрФУ",
-    "city": "Екатеринбург",
-    "description": "Уральский федеральный университет",
-    "officialWebsite": "https://urfu.ru",
-    "rating": 86,
-    "military": true,
-    "militaryFromCourse": 2
-  },
-  {
-    "id": 12,
-    "name": "ИТМО",
-    "city": "Санкт-Петербург",
-    "description": "Университет ИТ",
-    "officialWebsite": "https://itmo.ru",
-    "rating": 93,
-    "military": false,
-    "militaryFromCourse": 0
+    "militaryFromCourse": 1,
+    "budgBall": 282,
+    "budgPlace": 130,
+    "paidBall": 262,
+    "paidPlace": 100,
+    "introCoursesPrice": 14000,
+    "popularPrograms": "Информатика, Робототехника, Машиностроение, Биомедицина",
+    "military": true
   }
 ]

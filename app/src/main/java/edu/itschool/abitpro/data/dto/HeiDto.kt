@@ -8,7 +8,6 @@ data class HeiDto(
     val city: String,
     val description: String,
     val officialWebsite: String,
-    val rating: Int,
     @SerializedName("military")
     val isMilitary: Boolean,
     val militaryFromCourse: Int,
@@ -16,5 +15,7 @@ data class HeiDto(
     val budgBall: Int = -1,
     val budgPlace: Int = -1,
     val paidBall: Int = -1,
-    val paidPlace: Int = -1
+    val paidPlace: Int = -1,
+    val introCoursesPrice: Int = -1,
+    val popularPrograms: String? = null
 )

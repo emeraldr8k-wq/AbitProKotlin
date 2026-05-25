@@ -10,13 +10,14 @@ fun HeiDto.toHei(): Hei {
         city = city,
         description = description,
         web = officialWebsite,
-        rating = rating,
-        programs = emptyList(),
+        rating = -1,
+        programs = popularPrograms?.split(",")?.map { it.trim() } ?: emptyList(),
         freePassingGrade = budgBall,
         freePlace = budgPlace,
         payPassingGrade = paidBall,
         payPlace = paidPlace,
-        cost = -1
+        cost = -1,
+        introCoursesPrice = introCoursesPrice
     )
 }
 

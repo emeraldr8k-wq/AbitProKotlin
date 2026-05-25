@@ -12,5 +12,6 @@ data class Hei(
     val freePlace: Int = -1,
     val payPassingGrade: Int = -1,
     val payPlace: Int = -1,
-    val cost: Int = -1
+    val cost: Int = -1,
+    val introCoursesPrice: Int = -1
 )

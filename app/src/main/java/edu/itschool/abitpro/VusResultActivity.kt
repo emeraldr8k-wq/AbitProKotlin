@@ -2,11 +2,8 @@ package edu.itschool.abitpro
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import edu.itschool.abitpro.R
 import edu.itschool.abitpro.data.UniversityRepository
-import edu.itschool.abitpro.data.dto.HeiDto
 import edu.itschool.abitpro.databinding.ActivityVusResultBinding
 import edu.itschool.abitpro.domain.model.Hei
 
@@ -42,27 +39,22 @@ class VusResultActivity : AppCompatActivity() {
 
             selectedHei.let { hei ->
                 Log.i("Info9", "дошли")
-                binding.vuzNameValue.text = hei?.name
-                binding.budgBallValue.root.text = hei?.freePassingGrade.toString()
-                binding.budgPlaceValue.root.text = hei?.freePlace.toString()
-                binding.includedPaidBall.root.text = hei?.payPassingGrade.toString()
-                binding.includedPaidPlace.root.text = hei?.payPlace.toString()
-                binding.paidCostValue.root.text = hei?.cost.toString()
-                binding.coursesValue.root.text = hei?.rating.toString()
-                binding.cityValue.root.text = hei?.city
+                binding.vuzNameValue.text = hei.name
+                binding.budgBallValue.root.text = hei.freePassingGrade.toString()
+                binding.budgPlaceValue.root.text = hei.freePlace.toString()
+                binding.includedPaidBall.root.text = hei.payPassingGrade.toString()
+                binding.includedPaidPlace.root.text = hei.payPlace.toString()
+                binding.paidCostValue.root.text = hei.cost.toString()
+                binding.coursesValue.root.text = hei.introCoursesPrice.toString()
+                binding.cityValue.root.text = hei.city
 
-
-
-
-
-
-
-                //todo 3 направления
-
-
-
-
-
+                if (hei != null) {
+                    val p = hei.programs
+                    binding.table21.table2LValue.text.text = p.getOrNull(0) ?: "-"
+                    binding.table21.table2RValue.text.text = p.getOrNull(1) ?: "-"
+                    binding.table11.table1Value.text.text = p.getOrNull(2) ?: "-"
+                    binding.table12.table1Value.text.text = p.getOrNull(3) ?: "-"
+                }
             }
 
         }
