@@ -81,7 +81,7 @@
                     android:padding="4dp"
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
-                    <include layout="@layout/prefab_table_2"
+                    <include layout="@layout/prefab_table_1"
                         android:id="@+id/table2_1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
