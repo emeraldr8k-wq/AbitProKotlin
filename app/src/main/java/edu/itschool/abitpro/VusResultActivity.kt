@@ -20,40 +20,27 @@ class VusResultActivity : AppCompatActivity() {
 
         if (heiId != -1) {
 
-            var selectedHei = UniversityRepository.universityList.find { it.id == heiId }
+            val selectedHei = UniversityRepository.universityList.find { it.id == heiId }
 
-
-            if (selectedHei == null) {
-                selectedHei = Hei(
-                    id = heiId,
-                    name = "МФТИ (Вуз из базы)",
-                    city = "Москва",
-                    description = "Успешный переход! Данные подтянулись по ID: $heiId",
-                    "",
-                    emptyList(),
-                    7,
-                    4
-                )
-            }
 
 
             selectedHei.let { hei ->
                 Log.i("Info9", "дошли")
-                binding.vuzNameValue.text = hei.name
-                binding.budgBallValue.root.text = hei.freePassingGrade.toString()
-                binding.budgPlaceValue.root.text = hei.freePlace.toString()
-                binding.includedPaidBall.root.text = hei.payPassingGrade.toString()
-                binding.includedPaidPlace.root.text = hei.payPlace.toString()
-                binding.paidCostValue.root.text = hei.cost.toString()
-                binding.coursesValue.root.text = hei.introCoursesPrice.toString()
-                binding.cityValue.root.text = hei.city
+                binding.vuzNameValue.text = hei?.name
+                binding.budgBallValue.root.text = hei?.freePassingGrade.toString()
+                binding.budgPlaceValue.root.text = hei?.freePlace.toString()
+                binding.includedPaidBall.root.text = hei?.payPassingGrade.toString()
+                binding.includedPaidPlace.root.text = hei?.payPlace.toString()
+                binding.paidCostValue.root.text = hei?.cost.toString()
+                binding.coursesValue.root.text = hei?.introCoursesPrice.toString()
+                binding.cityValue.root.text = hei?.city
 
                 if (hei != null) {
                     val p = hei.programs
-                    binding.table21.table2LValue.text.text = p.getOrNull(0) ?: "-"
-                    binding.table21.table2RValue.text.text = p.getOrNull(1) ?: "-"
-                    binding.table11.table1Value.text.text = p.getOrNull(2) ?: "-"
-                    binding.table12.table1Value.text.text = p.getOrNull(3) ?: "-"
+                    binding.table11.text.text = p.getOrNull(0) ?: "-"
+                    binding.table12.text.text = p.getOrNull(1) ?: "-"
+                    binding.table13.text.text = p.getOrNull(2) ?: "-"
+                    binding.table14.text.text = p.getOrNull(3) ?: "-"
                 }
             }
 

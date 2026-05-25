@@ -32,7 +32,7 @@ class ResultActivity : AppCompatActivity() {
         setupRecyclerView()
 
         val searchQuery = intent.getStringExtra("SEARCH_QUERY") ?: ""
-        Log.i("Info9", "query = ${searchQuery}")
+        Log.i("Info9", "Получен поисковый запрос: ${searchQuery}")
         if (searchQuery.isNotEmpty()) {
             binding.searchEntry.searchByNameEntry.setText(searchQuery)
         }
@@ -52,14 +52,37 @@ class ResultActivity : AppCompatActivity() {
     private fun performSearch(searchQuery: String) {
         lifecycleScope.launch {
 
-            val listHei = if (searchQuery.isEmpty()) {
-                UniversityRepository.universityList
-            } else {
-                UniversityRepository.searchByName(searchQuery)
+            val allUniversities = UniversityRepository.universityList
+
+            val listPrograms = intent.getStringArrayListExtra("KEY_PROGRAMS") ?: emptyList()
+            val budgBall = intent.getIntExtra("KEY_budgBall", -1)
+            val budgPlace = intent.getIntExtra("KEY_budgPlace", -1)
+            val payBall = intent.getIntExtra("KEY_payBall", -1)
+            val payPlace = intent.getIntExtra("KEY_payPlace", -1)
+            val cost = intent.getIntExtra("KEY_cost", -1)
+            val course = intent.getIntExtra("KEY_course", -1)
+            val city = intent.getStringExtra("KEY_city") ?: ""
+            val warCaf = intent.getIntExtra("KEY_warCaf", -1)
+
+
+            val listHei = allUniversities.filter { vus ->
+                val matchesName = searchQuery.isEmpty() || vus.name.contains(
+                    searchQuery, ignoreCase = true
+                )
+
+                val matchPrograms = listPrograms.isEmpty() || listPrograms.any { subject -> vus.programs.toSet().contains(subject) }
+                val matchesBudgBall = budgBall == null || (vus.freePassingGrade ?: 0) <= budgBall
+                val matchesBudgPlace = budgPlace == null || (vus.freePlace ?: 0) >= budgPlace
+                val matchesPayBall = payBall == null || (vus.payPassingGrade ?: 0) <= payBall
+                val matchesPayPlace = payPlace == null || (vus.payPlace ?: 0) >= payPlace
+                val matchesCost = cost == null || (vus.cost ?: 0) <= cost
+                val matchesCourse = course == null || (vus.introCoursesPrice ?: 0) <= course
+                val matchesCity = city.isEmpty() || vus.city.contains(city, ignoreCase = true)
+                val matchesWarCaf = warCaf == null || vus.isMilitary // todo && (vus.militaryFromCourse ?: 0)
+
+
+                matchesName && matchesBudgBall && matchesBudgPlace && matchesPayBall && matchesPayPlace && matchesCity && matchesCourse && matchesCost && matchesWarCaf && matchPrograms
             }
-
-
-
             adapter?.submitList(listHei)
 
         }

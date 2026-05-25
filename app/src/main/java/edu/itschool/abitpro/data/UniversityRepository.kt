@@ -15,7 +15,7 @@ object UniversityRepository {
     var universityList: List<Hei> = emptyList()
         private set
 
-    fun loadUniversities(context: Context) {
+    fun loadUniversities(context: Context) {   //todo добавить сервер
         if (universityList.isNotEmpty()) return
         try {
             val jsonString = context.assets.open("universities.json").use { inputStream ->
@@ -31,7 +31,7 @@ object UniversityRepository {
             universityList = dtoHei.map { it.toHei() }
             Log.i("Info9", "Данные успешно загружены! Размер: ${universityList.size}")
         } catch (e: Exception) {
-            Log.e("Info9", "Ошибка при чтении или парсинге JSON!", e)
+            Log.e("Info9", "Ошибка при чтении или парсинге JSON!")
 
         }
 

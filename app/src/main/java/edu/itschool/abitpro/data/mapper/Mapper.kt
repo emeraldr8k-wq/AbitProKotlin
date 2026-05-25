@@ -17,7 +17,9 @@ fun HeiDto.toHei(): Hei {
         payPassingGrade = paidBall,
         payPlace = paidPlace,
         cost = -1,
-        introCoursesPrice = introCoursesPrice
+        introCoursesPrice = introCoursesPrice,
+        isMilitary = isMilitary,
+        militaryFromCourse = militaryFromCourse
     )
 }
 
