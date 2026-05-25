@@ -72,14 +72,6 @@
                     android:stretchColumns="*">
 
                     <include
-                        android:id="@+id/table2_1"
-                        layout="@layout/prefab_table_2_param"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:layout_weight="1" />
-
-                    <include
                         android:id="@+id/table1_1"
                         layout="@layout/prefab_table_1_param"
                         android:layout_width="0dp"
@@ -89,6 +81,14 @@
 
                     <include
                         android:id="@+id/table1_2"
+                        layout="@layout/prefab_table_1_param"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/table1_3"
                         layout="@layout/prefab_table_1_param"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
