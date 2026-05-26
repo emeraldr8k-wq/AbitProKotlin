@@ -56,8 +56,7 @@ class ResultActivity : AppCompatActivity() {
             Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
 
             val listPrograms = intent.getStringArrayListExtra("KEY_PROGRAMS") ?: emptyList()
-            Log.i("Info9", " ${listPrograms[0]}")
-            val budgBall = intent.getIntExtra("KEY_budgBall", -1)
+        val budgBall = intent.getIntExtra("KEY_budgBall", -1)
             val budgPlace = intent.getIntExtra("KEY_budgPlace", -1)
             val payBall = intent.getIntExtra("KEY_payBall", -1)
             val payPlace = intent.getIntExtra("KEY_payPlace", -1)
