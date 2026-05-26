@@ -67,5 +67,22 @@ object UniversityRepository {
         }
         return universityList
     }
+    suspend fun getUniversityById(id: Int, context: Context): Hei? {
+        val service = apiService
+        if (service != null) {
+            try {
+                Log.i("NetworkDetails", "Запрос к серверу для вуза по ID: $id")
+
+                val dto = service.getUniversityById(id.toLong())
+                return dto.toHei()
+
+            } catch (e: Exception) {
+                Log.e("NetworkDetails", "Сервер недоступен. Ошибка: ${e.message}")
+            }
+        }
+
+        if (universityList.isEmpty()) loadUniversities(context)
+        return universityList.find { it.id == id }
+    }
 }
 

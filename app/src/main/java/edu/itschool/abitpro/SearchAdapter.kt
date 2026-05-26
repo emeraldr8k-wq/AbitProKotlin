@@ -41,13 +41,16 @@ class SearchAdapter(
         private val paidBall: TextView = itemView.findViewById(R.id.paid_ball)
 
         private val paidPlace: TextView = itemView.findViewById(R.id.paid_place)
+        private val cost: TextView = itemView.findViewById(R.id.cost_value)
 
         fun bind(item: Hei, onItemClick: (Hei) -> Unit) {
             titleText.text = item.name
-            budgBall.text = item.freePassingGrade.toString()               //todo cost_value
+            budgBall.text = item.freePassingGrade.toString()
             budgPlace.text = item.freePlace.toString()
             paidBall.text = item.payPassingGrade.toString()
             paidPlace.text = item.payPlace.toString()
+            cost.text = item.cost.toString()
+
             itemView.setOnClickListener{
 
                 Log.i("Info9", "bind")

@@ -51,7 +51,7 @@ class ResultActivity : AppCompatActivity() {
 
     private fun performSearch(searchQuery: String) {
         lifecycleScope.launch {
-            UniversityRepository.loadUniversities(this@ResultActivity)
+            UniversityRepository.loadUniversities(this@ResultActivity)  //todo нужно чтобы грузились со стартом приложения
 
             val allUniversities = UniversityRepository.universityList
             Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
@@ -64,7 +64,7 @@ class ResultActivity : AppCompatActivity() {
             val cost = intent.getIntExtra("KEY_cost", -1)
             val course = intent.getIntExtra("KEY_course", -1)
             val city = intent.getStringExtra("KEY_city") ?: ""
-            val warCaf = intent.getIntExtra("KEY_warCaf", -1)
+            val warCaf = intent.getBooleanExtra("KEY_warCaf", false)
 
 
             val listHei = allUniversities.filter { vus ->
@@ -86,7 +86,7 @@ class ResultActivity : AppCompatActivity() {
                 val matchesCost = cost == -1 || (vus.cost ?: 0) <= cost
                 val matchesCourse = course == -1 || (vus.introCoursesPrice ?: 0) <= course
                 val matchesCity = city.isEmpty() || vus.city.contains(city, ignoreCase = true)
-                val matchesWarCaf = warCaf == -1 || vus.isMilitary // todo && (vus.militaryFromCourse ?: 0)
+                val matchesWarCaf = vus.isMilitary == warCaf
 
                 matchesName && matchesBudgBall && matchesBudgPlace && matchesPayBall && matchesPayPlace && matchesCity && matchesCourse && matchesCost && matchesWarCaf && matchPrograms
             }

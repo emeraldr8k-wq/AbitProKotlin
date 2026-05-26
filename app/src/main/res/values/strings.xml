@@ -48,7 +48,8 @@
         вашем устройстве локально и ни куда не передаются.
 </string>
     <string name="start_search">Начать поиск</string>
-
+    <string name="no">Нет</string>
+    <string name="course">c %1$d курса</string>
 
 
 </resources>

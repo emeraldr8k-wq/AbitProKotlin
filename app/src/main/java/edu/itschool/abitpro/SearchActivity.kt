@@ -37,8 +37,8 @@ class SearchActivity : AppCompatActivity() {
             val payPlace = binding.paidPlacesValueEntry.num.text.toString().trim().toIntOrNull()
             val cost = binding.paidCostValueEntry.num.text.toString().trim().toIntOrNull()
             val course = binding.coursesValueParam.priceParam.text.toString().trim().toIntOrNull()
-            val city = binding.cityValueParam.textParamNocross.text.toString().trim()
-            val warCaf = binding.warValueParam.textParamNocross.text.toString().trim().toIntOrNull()
+            val city = binding.cityValueParam.text.text.toString().trim()
+            val warCaf = binding.checkBox.isChecked
 
             Log.i("Info9", "query = $query")
 
@@ -53,7 +53,6 @@ class SearchActivity : AppCompatActivity() {
                 putExtra("KEY_course", course)
                 putExtra("KEY_city", city)
                 putExtra("KEY_warCaf", warCaf)
-
             }
             startActivity(intent)
         }
