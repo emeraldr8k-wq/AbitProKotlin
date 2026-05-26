@@ -259,7 +259,7 @@
                     android:textSize="16sp" />
                 <include
                     android:id="@+id/city_value_param"
-                    layout="@layout/value_text_param_nocross"
+                    layout="@layout/value_text_param"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -274,17 +274,22 @@
                 android:padding="11dp">
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
                     android:text="@string/war_dep"
                     android:textColor="@color/DWhite1"
                     android:textSize="16sp" />
-                <include
-                    android:id="@+id/war_value_param"
-                    layout="@layout/value_text_param_nocross"
+
+                <!-- Чекбокс справа, перекрашен в DWhite1 -->
+                <CheckBox
+                    android:id="@+id/war_checkBox"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/DWhite1" />
+
             </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 
