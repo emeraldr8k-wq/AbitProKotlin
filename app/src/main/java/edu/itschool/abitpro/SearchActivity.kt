@@ -24,20 +24,21 @@ class SearchActivity : AppCompatActivity() {
 
         btn.setOnClickListener {
             val query = editText.text.toString()
-            val listPrograms = arrayListOf<String>(
-                binding.table11.text.toString().trim(),
-                binding.table12.text.toString().trim(),
-                binding.table13.text.toString().trim(),
-                binding.table14.text.toString().trim()
-            )
+            val listPrograms = arrayListOf(
+                binding.table11.text.text.toString().trim(),
+                binding.table12.text.text.toString().trim(),
+                binding.table13.text.text.toString().trim(),
+                binding.table14.text.text.toString().trim()
+            ).filter { it.isNotEmpty() } as ArrayList<String>
+
             val budgBall = binding.budgBallValueEntry.searchByName.text.toString().trim().toIntOrNull()
             val budgPlace = binding.budgPlaceValueEntry.searchByName.text.toString().trim().toIntOrNull()
             val payBall = binding.paidBallValueEntry.searchByName.text.toString().trim().toIntOrNull()
-            val payPlace = binding.paidBallValueEntry.searchByName.text.toString().trim().toIntOrNull()
+            val payPlace = binding.paidPlacesValueEntry.searchByName.text.toString().trim().toIntOrNull()
             val cost = binding.paidCostValueEntry.searchByName.text.toString().trim().toIntOrNull()
             val course = binding.coursesValueParam.priceParam.text.toString().trim().toIntOrNull()
             val city = binding.cityValueParam.textParamNocross.text.toString().trim()
-            val warCaf = binding.warValueParam.textParamNocross.text.toString().trim()
+            val warCaf = binding.warValueParam.textParamNocross.text.toString().trim().toIntOrNull()
 
             Log.i("Info9", "query = $query")
 
