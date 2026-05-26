@@ -31,11 +31,11 @@ class SearchActivity : AppCompatActivity() {
                 binding.table14.text.text.toString().trim()
             ).filter { it.isNotEmpty() } as ArrayList<String>
 
-            val budgBall = binding.budgBallValueEntry.searchByName.text.toString().trim().toIntOrNull()
-            val budgPlace = binding.budgPlaceValueEntry.searchByName.text.toString().trim().toIntOrNull()
-            val payBall = binding.paidBallValueEntry.searchByName.text.toString().trim().toIntOrNull()
-            val payPlace = binding.paidPlacesValueEntry.searchByName.text.toString().trim().toIntOrNull()
-            val cost = binding.paidCostValueEntry.searchByName.text.toString().trim().toIntOrNull()
+            val budgBall = binding.budgBallValueEntry.num.text.toString().trim().toIntOrNull()
+            val budgPlace = binding.budgPlaceValueEntry.num.text.toString().trim().toIntOrNull()
+            val payBall = binding.paidBallValueEntry.num.text.toString().trim().toIntOrNull()
+            val payPlace = binding.paidPlacesValueEntry.num.text.toString().trim().toIntOrNull()
+            val cost = binding.paidCostValueEntry.num.text.toString().trim().toIntOrNull()
             val course = binding.coursesValueParam.priceParam.text.toString().trim().toIntOrNull()
             val city = binding.cityValueParam.textParamNocross.text.toString().trim()
             val warCaf = binding.warValueParam.textParamNocross.text.toString().trim().toIntOrNull()
