@@ -25,7 +25,7 @@ class ResultActivity : AppCompatActivity() {
 
 
 
-        UniversityRepository.loadUniversities(this)
+
         Log.i("Info9", "Размер списка в репозитории: ${UniversityRepository.universityList.size}")
 
 
@@ -51,12 +51,13 @@ class ResultActivity : AppCompatActivity() {
 
     private fun performSearch(searchQuery: String) {
         lifecycleScope.launch {
+            UniversityRepository.loadUniversities(this@ResultActivity)
 
             val allUniversities = UniversityRepository.universityList
             Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
 
             val listPrograms = intent.getStringArrayListExtra("KEY_PROGRAMS") ?: emptyList()
-        val budgBall = intent.getIntExtra("KEY_budgBall", -1)
+            val budgBall = intent.getIntExtra("KEY_budgBall", -1)
             val budgPlace = intent.getIntExtra("KEY_budgPlace", -1)
             val payBall = intent.getIntExtra("KEY_payBall", -1)
             val payPlace = intent.getIntExtra("KEY_payPlace", -1)
@@ -73,9 +74,12 @@ class ResultActivity : AppCompatActivity() {
 
 
                 val vusProgramsSet = vus.programs.toSet()
-                val matchPrograms = listPrograms.isEmpty() || listPrograms.any { userProgram -> vusProgramsSet.contains(userProgram) }
+                val matchPrograms = listPrograms.isEmpty() || listPrograms.any { userProgram ->
+                    vusProgramsSet.contains(userProgram)
+                }
                 Log.i("Info9", "${vus.name} Направления ${vus.programs} \t $listPrograms")
                 val matchesBudgBall = budgBall == -1 || (vus.freePassingGrade ?: 0) <= budgBall
+                Log.i("Info9", "Бюдженый балл ${vus.freePassingGrade} \t $budgBall")
                 val matchesBudgPlace = budgPlace == -1 || (vus.freePlace ?: 0) >= budgPlace
                 val matchesPayBall = payBall == -1 || (vus.payPassingGrade ?: 0) <= payBall
                 val matchesPayPlace = payPlace == -1 || (vus.payPlace ?: 0) >= payPlace

@@ -44,7 +44,7 @@ class SearchAdapter(
 
         fun bind(item: Hei, onItemClick: (Hei) -> Unit) {
             titleText.text = item.name
-            budgBall.text = item.freePassingGrade.toString()               //todo бюджетный балл
+            budgBall.text = item.freePassingGrade.toString()               //todo cost_value
             budgPlace.text = item.freePlace.toString()
             paidBall.text = item.payPassingGrade.toString()
             paidPlace.text = item.payPlace.toString()

@@ -214,6 +214,7 @@
                         android:textSize="12dp" />
 
                     <TextView
+                        android:id="@+id/cost_value"
                         android:layout_width="wrap_content"
                         android:layout_gravity="start"
                         android:gravity="start"
