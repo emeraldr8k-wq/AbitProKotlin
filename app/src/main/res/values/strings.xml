@@ -1,5 +1,5 @@
 <resources>
-    <string name="default1">num</string>
+    <string name="default1">введите</string>
     <string name="default2">Default text</string>
     <string name="default3">DEFAULT _____ TEXT _____ 3</string>
 
@@ -14,7 +14,9 @@
     <string name="value">балл:</string>
     <string name="places">мест:</string>
     <string name="way">Направления:</string>
-    <string name="typing_way">Введите направление</string>
+    <string name="typing_way">Введите значение</string>
+    <string name="typing_city">Введите город</string>
+    <string name="typing_war">Введите курс</string>
 
     <string name="value_free">Проходной балл на бюджет</string>
     <string name="value_paid">Проходной балл на платное</string>
@@ -22,7 +24,7 @@
     <string name="places_free">Количество бюджетных мест</string>
     <string name="places_paid">Количество платных мест</string>
 
-    <string name="cost_paid">Стоимость поступления</string>
+    <string name="cost_paid">Стоимость обучения, р/мес</string>
 
     <string name="intro_courses">Подготовительные курсы</string>
     <string name="city">Город</string>
