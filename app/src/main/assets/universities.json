@@ -12,7 +12,8 @@
     "paidPlace": 135,
     "introCoursesPrice": 15000,
     "popularPrograms": "Прикладная математика, Физика, Химия, Биология",
-    "military": true
+    "military": true,
+    "paidCost": 390000
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@
     "paidPlace": 100,
     "introCoursesPrice": 12000,
     "popularPrograms": "Программная инженерия, Прикладная математика, Экономика, Юриспруденция",
-    "military": true
+    "military": true,
+    "paidCost": 310000
   },
   {
     "id": 3,
@@ -42,7 +44,8 @@
     "paidPlace": 190,
     "introCoursesPrice": 20000,
     "popularPrograms": "Бизнес-информатика, Программная инженерия, Экономика, Менеджмент",
-    "military": false
+    "military": false,
+    "paidCost": 450000
   },
   {
     "id": 4,
@@ -57,7 +60,8 @@
     "paidPlace": 65,
     "introCoursesPrice": 18000,
     "popularPrograms": "Прикладная математика, Информатика, Физика, Биоинформатика",
-    "military": true
+    "military": true,
+    "paidCost": 300000
   },
   {
     "id": 5,
@@ -72,21 +76,7 @@
     "paidPlace": 30,
     "introCoursesPrice": 10000,
     "popularPrograms": "Фундаментальная информатика, Математика, Физика, Экономика",
-    "military": true
-  },
-  {
-    "id": 6,
-    "name": "МГТУ им. Баумана",
-    "city": "Москва",
-    "description": "Технический университет",
-    "officialWebsite": "https://bmstu.ru",
-    "militaryFromCourse": 1,
-    "budgBall": 282,
-    "budgPlace": 130,
-    "paidBall": 262,
-    "paidPlace": 100,
-    "introCoursesPrice": 14000,
-    "popularPrograms": "Информатика, Робототехника, Машиностроение, Биомедицина",
-    "military": true
+    "military": true,
+    "paidCost": 210000
   }
 ]

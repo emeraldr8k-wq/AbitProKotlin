@@ -12,14 +12,14 @@ fun HeiDto.toHei(): Hei {
         web = officialWebsite,
         rating = -1,
         programs = popularPrograms?.split(",")?.map { it.trim() } ?: emptyList(),
+        isMilitary = isMilitary,
+        militaryFromCourse = militaryFromCourse,
         freePassingGrade = budgBall,
         freePlace = budgPlace,
         payPassingGrade = paidBall,
         payPlace = paidPlace,
-        cost = -1,
-        introCoursesPrice = introCoursesPrice,
-        isMilitary = isMilitary,
-        militaryFromCourse = militaryFromCourse
+        cost = paidCost,
+        introCoursesPrice = introCoursesPrice
     )
 }
 
