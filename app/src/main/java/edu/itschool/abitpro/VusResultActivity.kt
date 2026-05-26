@@ -17,7 +17,7 @@ class VusResultActivity : AppCompatActivity() {
 
         if (hei != null) {
             //todo вписать айди из биндинга, с сервером
-            binding.vuzName.text = hei.name
+         binding.vuzName.text = hei.name
 //                binding.singlBudgBall.text = hei.budgBall
 //                binding.singlBudgPlace.text = hei.budgPlace
 //                binding.includedPaidBall.text       text = hei.paidBall

@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="100dp"
     android:layout_height="wrap_content"
     android:padding="5dp"
-    android:background="@drawable/param_background2">
+    android:orientation="horizontal"
+    android:background="@drawable/param_background2"
+    android:layout_margin="4dp">
+
     <EditText
-        android:id="@+id/searchByName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/num"
+        android:inputType="number"
         android:autofillHints="name"
         android:background="@android:color/transparent"
-        android:ems="4"
-        android:textSize="12sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
         android:hint="@string/default1"
-        android:inputType="number"
-        android:textColor="@color/DForeground1"
         android:textColorHint="@color/DWhite1"
-        android:textAlignment="center"/>
-</FrameLayout>
+        android:textColor="@color/DWhite1"
+        android:textSize="12sp" />
+</LinearLayout>
