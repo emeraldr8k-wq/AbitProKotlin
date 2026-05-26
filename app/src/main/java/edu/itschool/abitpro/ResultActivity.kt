@@ -73,9 +73,9 @@ class ResultActivity : AppCompatActivity() {
                 )
 
 
-                val vusProgramsSet = vus.programs.toSet()
+                val vusProgramsSet = vus.programs.map { it.lowercase() }.toSet()
                 val matchPrograms = listPrograms.isEmpty() || listPrograms.any { userProgram ->
-                    vusProgramsSet.contains(userProgram)
+                    vusProgramsSet.contains(userProgram.lowercase())
                 }
                 Log.i("Info9", "${vus.name} Направления ${vus.programs} \t $listPrograms")
                 val matchesBudgBall = budgBall == -1 || (vus.freePassingGrade ?: 0) <= budgBall
