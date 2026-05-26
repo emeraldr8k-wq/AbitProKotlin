@@ -40,7 +40,7 @@ class SearchAdapter(
 
         private val paidBall: TextView = itemView.findViewById(R.id.paid_ball)
 
-        private val paidPlace: TextView = itemView.findViewById(R.id.paid_place)
+        private val paidPlace: TextView = itemView.findViewById(R.id.paid_places)
         private val cost: TextView = itemView.findViewById(R.id.cost_value)
 
         fun bind(item: Hei, onItemClick: (Hei) -> Unit) {
