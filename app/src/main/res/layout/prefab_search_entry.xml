@@ -15,7 +15,7 @@
             android:layout_weight="1"
             android:background="@drawable/search_entry_left">
 
-            <TextView
+            <EditText
                 android:layout_gravity="center_vertical"
                 android:id="@+id/searchByName_entry"
                 android:layout_width="match_parent"
@@ -24,6 +24,7 @@
                 android:autofillHints="name"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:inputType="textCapCharacters"
                 android:hint="@string/search_entry_text"
                 android:textColor="@color/DForeground1"
                 android:textColorHint="@color/DForeground1"
