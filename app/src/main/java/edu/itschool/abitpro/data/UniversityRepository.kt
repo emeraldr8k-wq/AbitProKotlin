@@ -15,8 +15,20 @@ object UniversityRepository {
     var universityList: List<Hei> = emptyList()
         private set
 
-    fun loadUniversities(context: Context) {   //todo добавить сервер
+    suspend fun loadUniversities(context: Context) {
         if (universityList.isNotEmpty()) return
+
+        val service = apiService
+        if (service != null){
+            try {
+                val networkDtoList = service.getUniversities()
+                universityList = networkDtoList.toHeiList()
+            }catch (e: Exception){
+                Log.e("Info9", "Сервер недоступен. Ошибка: ${e.message}")
+            }
+        }
+
+
         try {
             val jsonString = context.assets.open("universities.json").use { inputStream ->
                 val size = inputStream.available()
