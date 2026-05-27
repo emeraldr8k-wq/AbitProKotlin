@@ -69,7 +69,7 @@ object UniversityRepository {
         return universityList
     }
 
-    suspend fun getUniversityById(id: Int, context: Context): Hei? {
+    suspend fun getHeiById(id: Int, context: Context): Hei? {
         val service = apiService
         if (service != null) {
             try {
