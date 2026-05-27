@@ -96,9 +96,9 @@ class VusResultActivity : AppCompatActivity() {
 
     private fun updateFavBtnIcon(button: ImageButton, isFavorite: Boolean) {
         if (isFavorite) {
-            button.setImageResource(android.R.drawable.btn_star_big_on)  //todo заменить
+            button.setImageResource(R.drawable.image_heart_default_filled)
         } else {
-            button.setImageResource(android.R.drawable.btn_star_big_off)
+            button.setImageResource(R.drawable.image_heart_default)
         }
     }
 }
