@@ -16,8 +16,13 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySearchBinding.inflate(getLayoutInflater())
+        binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.bottomBar.bottomButtonProfile.setOnClickListener {
+            val favoriteIntent = Intent(this, FavouritesActivity::class.java)
+            startActivity(favoriteIntent)
+        }
 
         val editText: EditText = binding.searchEntry.searchByNameEntry
         val btn: ImageButton = binding.searchEntry.searchButton

@@ -25,6 +25,8 @@ object UniversityRepository {
             try {
                 val networkDtoList = service.getUniversities()
                 universityList = networkDtoList.toHeiList()
+                Log.i("Info9", "Данные с сервера успешно загружены! Размер: ${universityList.size}")
+                return
             } catch (e: Exception) {
                 Log.e("Info9", "Сервер недоступен. Ошибка: ${e.message}")
             }

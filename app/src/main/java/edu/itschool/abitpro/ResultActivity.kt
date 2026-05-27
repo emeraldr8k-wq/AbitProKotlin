@@ -27,6 +27,10 @@ class ResultActivity : AppCompatActivity() {
             val searchIntent = Intent(this, SearchActivity::class.java)
             startActivity(searchIntent)
         }
+        binding.bottomBar.bottomButtonProfile.setOnClickListener {
+            val favoriteIntent = Intent(this, FavouritesActivity::class.java)
+            startActivity(favoriteIntent)
+        }
 
 
 

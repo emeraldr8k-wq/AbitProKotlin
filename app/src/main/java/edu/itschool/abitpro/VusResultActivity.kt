@@ -1,5 +1,6 @@
 package edu.itschool.abitpro
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
@@ -15,6 +16,16 @@ class VusResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.bottomBar.bottomButtonSearch.setOnClickListener {
+            val searchIntent = Intent(this, SearchActivity::class.java)
+            startActivity(searchIntent)
+        }
+        binding.bottomBar.bottomButtonProfile.setOnClickListener {
+            val favoriteIntent = Intent(this, FavouritesActivity::class.java)
+            startActivity(favoriteIntent)
+        }
+
         val heiId = intent.getIntExtra("UNIVERSITY_ID", -1)
         Log.i("Info9", "HeiId =  ${heiId}")
 
