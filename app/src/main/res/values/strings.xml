@@ -10,6 +10,8 @@
     <string name="app_name">AbitPro</string>
     <string name="search_entry_text">Параметры поиска вуза</string>
     <string name="search_result">Результаты поиска:</string>
+    <string name="favourites">Ваше избранное:</string>
+
     <string name="change_settings">Параметры сортировки:</string>
     <string name="search">поиск</string>
     <string name="value">балл:</string>
