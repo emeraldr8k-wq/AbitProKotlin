@@ -24,7 +24,7 @@ class VusResultActivity : AppCompatActivity() {
         if (heiId != -1) {
             lifecycleScope.launch {
                 try {
-                    val selectedHei = UniversityRepository.getUniversityById(heiId, this@VusResultActivity)
+                    val selectedHei = UniversityRepository.getHeiById(heiId, this@VusResultActivity)
                     updateUi(selectedHei)
                 } catch (e: Exception) {
                     Log.e("Info9", "Ошибка загрузки вуза", e)
