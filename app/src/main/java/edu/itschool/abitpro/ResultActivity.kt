@@ -23,6 +23,12 @@ class ResultActivity : AppCompatActivity() {
         Log.i("Info9", "createRA")
 
 
+        binding.bottomBar.bottomButtonSearch.setOnClickListener {
+            val searchIntent = Intent(this, SearchActivity::class.java)
+            startActivity(searchIntent)
+        }
+
+
 
 
 
