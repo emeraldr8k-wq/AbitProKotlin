@@ -300,7 +300,9 @@
         android:id="@+id/bottomBar"
         layout="@layout/prefab_bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="11dp"
+        android:layout_marginBottom="11dp"
+        />
 
 </LinearLayout>
