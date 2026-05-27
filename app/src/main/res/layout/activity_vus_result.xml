@@ -14,7 +14,7 @@
     <include
         android:layout_margin="11dp"
         android:id="@+id/searchEntry"
-        layout="@layout/prefab_search_entry"
+        layout="@layout/prefab_search_entry_vus_result"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +53,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="100dp"
-                        android:text="@string/default3"
+                        android:text="@string/load3"
                         android:textColor="@color/DWhite1"
                         android:textSize="20sp" />
                 </FrameLayout>
