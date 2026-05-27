@@ -54,9 +54,9 @@ class VusResultActivity : AppCompatActivity() {
                 binding.budgPlaceValue.root.text = hei.freePlace.toString()
                 binding.includedPaidBall.root.text = hei.payPassingGrade.toString()
                 binding.includedPaidPlace.root.text = hei.payPlace.toString()
-                binding.paidCostValue.root.text = hei.cost.toString()
-                binding.coursesValue.root.text = hei.introCoursesPrice.toString()
-                binding.cityValue.root.text = hei.city
+                binding.paidCostValue.price.text = hei.cost.toString()
+                binding.coursesValue.price.text = hei.introCoursesPrice.toString()
+                binding.cityValue.text.text = hei.city
                 if (hei.isMilitary) {
                     binding.warValue.text.text =
                         getString(R.string.course, hei.militaryFromCourse)

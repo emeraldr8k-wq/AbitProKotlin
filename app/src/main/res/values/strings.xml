@@ -25,14 +25,14 @@
     <string name="places_free">Количество бюджетных мест</string>
     <string name="places_paid">Количество платных мест</string>
 
-    <string name="cost_paid">Стоимость обучения, руб/мес</string>
+    <string name="cost_paid">Стоимость обучения</string>
 
-    <string name="intro_courses">Подготовительные курсы, р/мес</string>
+    <string name="intro_courses">Подготовительные курсы</string>
     <string name="city">Город</string>
     <string name="war_dep">Военная кафедра</string>
 
-    <string name="price_month">р/мес</string>
-    <string name="price_year">р/год</string>
+    <string name="price_month">руб/мес</string>
+    <string name="price_year">руб/год</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
