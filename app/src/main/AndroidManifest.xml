@@ -41,6 +41,10 @@
             android:name=".VusResultActivity"
             android:exported="false"
             android:theme="@style/Theme.AbitPro" />
+        <activity
+            android:name=".FavouritesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AbitPro" />
     </application>
 
 </manifest>
