@@ -9,10 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import edu.itschool.abitpro.data.UniversityRepository
 import edu.itschool.abitpro.databinding.ActivityFavouritesBinding
-import edu.itschool.abitpro.databinding.ActivitySearchBinding
 import kotlinx.coroutines.launch
 
-class FavouritesActivity: AppCompatActivity() {
+class FavouritesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFavouritesBinding
     private var adapter: SearchAdapter? = null
@@ -25,7 +24,9 @@ class FavouritesActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomBar.bottomButtonSearch.setOnClickListener {
-            val searchIntent = Intent(this, SearchActivity::class.java)
+            val searchIntent = Intent(this, SearchActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(searchIntent)
         }
 
@@ -34,7 +35,15 @@ class FavouritesActivity: AppCompatActivity() {
         val editText: EditText = binding.searchEntry.searchByNameEntry
         val btn: ImageButton = binding.searchEntry.searchButton
 
+        btn.setOnClickListener {
+            val query = editText.text.toString()
+            val resultIntent = Intent(this, ResultActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                putExtra("SEARCH_QUERY", query)
+            }
 
+            startActivity(resultIntent)
+        }
     }
 
     override fun onResume() {
@@ -44,8 +53,8 @@ class FavouritesActivity: AppCompatActivity() {
 
     private fun loadFavorites() {
         lifecycleScope.launch {
-            UniversityRepository.loadUniversities(this@FavouritesActivity)
-            val favoriteIds = UniversityRepository.getFavoritesIds(this@FavouritesActivity)
+            UniversityRepository.loadUniversities(applicationContext)
+            val favoriteIds = UniversityRepository.getFavoritesIds(applicationContext)
             Log.i("Info9", "ID избранных вузов: $favoriteIds")
             val favoriteList = UniversityRepository.universityList.filter { vus ->
                 favoriteIds.contains(vus.id)
@@ -58,8 +67,7 @@ class FavouritesActivity: AppCompatActivity() {
     private fun setupRecyclerView() {
         adapter = SearchAdapter { clickedItem ->
             val vusIntent = Intent(
-                this,
-                VusResultActivity::class.java
+                this, VusResultActivity::class.java
             ).apply { putExtra("UNIVERSITY_ID", clickedItem.id) }
             startActivity(vusIntent)
 

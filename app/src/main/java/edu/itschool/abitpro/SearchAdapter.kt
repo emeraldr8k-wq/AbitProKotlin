@@ -51,7 +51,7 @@ class SearchAdapter(
             paidPlace.text = item.payPlace.toString()
             cost.text = item.cost.toString()
 
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
 
                 Log.i("Info9", "bind")
 

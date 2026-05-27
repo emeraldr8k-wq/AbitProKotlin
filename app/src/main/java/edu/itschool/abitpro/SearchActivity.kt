@@ -20,7 +20,9 @@ class SearchActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomBar.bottomButtonProfile.setOnClickListener {
-            val favoriteIntent = Intent(this, FavouritesActivity::class.java)
+            val favoriteIntent = Intent(this, FavouritesActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(favoriteIntent)
         }
 
@@ -49,7 +51,7 @@ class SearchActivity : AppCompatActivity() {
 
             val intent = Intent(this, ResultActivity::class.java).apply {
                 putExtra("SEARCH_QUERY", query)
-                putStringArrayListExtra("KEY_PROGRAMS",listPrograms)
+                putStringArrayListExtra("KEY_PROGRAMS", listPrograms)
                 putExtra("KEY_budgBall", budgBall)
                 putExtra("KEY_budgPlace", budgPlace)
                 putExtra("KEY_payBall", payBall)

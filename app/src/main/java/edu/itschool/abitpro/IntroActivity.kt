@@ -22,6 +22,7 @@ class IntroActivity : AppCompatActivity() {
             Log.i("Info9", "клик")
             val searchIntent = Intent(this, SearchActivity::class.java).apply { }
             startActivity(searchIntent)
+            finish()
         }
     }
 }

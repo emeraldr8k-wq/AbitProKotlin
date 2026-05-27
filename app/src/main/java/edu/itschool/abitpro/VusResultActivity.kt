@@ -18,16 +18,20 @@ class VusResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomBar.bottomButtonSearch.setOnClickListener {
-            val searchIntent = Intent(this, SearchActivity::class.java)
+            val searchIntent = Intent(this, SearchActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(searchIntent)
         }
         binding.bottomBar.bottomButtonProfile.setOnClickListener {
-            val favoriteIntent = Intent(this, FavouritesActivity::class.java)
+            val favoriteIntent = Intent(this, FavouritesActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(favoriteIntent)
         }
 
         val heiId = intent.getIntExtra("UNIVERSITY_ID", -1)
-        Log.i("Info9", "HeiId =  ${heiId}")
+        Log.i("Info9", "HeiId =  $heiId")
 
 
 
@@ -35,20 +39,25 @@ class VusResultActivity : AppCompatActivity() {
         if (heiId != -1) {
             lifecycleScope.launch {
                 try {
-                    val selectedHei = UniversityRepository.getHeiById(heiId, this@VusResultActivity)
+                    val selectedHei = UniversityRepository.getHeiById(heiId, applicationContext)
                     updateUi(selectedHei)
                 } catch (e: Exception) {
                     Log.e("Info9", "Ошибка загрузки вуза", e)
                 }
 
-                val favBtn  = binding.searchEntry.searchButton //todo заменить на кнопку избранных
+                val favBtn = binding.searchEntry.searchButton //todo заменить на кнопку избранных
 
-                var isFavorite = UniversityRepository.getFavoritesIds(this@VusResultActivity).contains(heiId)
+                var isFavorite =
+                    UniversityRepository.getFavoritesIds(applicationContext).contains(heiId)
                 updateFavBtnIcon(favBtn, isFavorite)
 
                 favBtn.setOnClickListener {
-                    isFavorite = UniversityRepository.toAdRemoveFavorite(this@VusResultActivity, heiId)
-                    updateFavBtnIcon(favBtn, isFavorite)
+                    lifecycleScope.launch {
+                        isFavorite =
+                            UniversityRepository.toAdRemoveFavorite(applicationContext, heiId)
+                        updateFavBtnIcon(favBtn, isFavorite)
+                    }
+
                 }
             }
         }
@@ -84,6 +93,7 @@ class VusResultActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun updateFavBtnIcon(button: ImageButton, isFavorite: Boolean) {
         if (isFavorite) {
             button.setImageResource(android.R.drawable.btn_star_big_on)  //todo заменить

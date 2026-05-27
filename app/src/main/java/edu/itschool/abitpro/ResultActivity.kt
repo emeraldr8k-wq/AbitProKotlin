@@ -24,11 +24,15 @@ class ResultActivity : AppCompatActivity() {
 
 
         binding.bottomBar.bottomButtonSearch.setOnClickListener {
-            val searchIntent = Intent(this, SearchActivity::class.java)
+            val searchIntent = Intent(this, SearchActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(searchIntent)
         }
         binding.bottomBar.bottomButtonProfile.setOnClickListener {
-            val favoriteIntent = Intent(this, FavouritesActivity::class.java)
+            val favoriteIntent = Intent(this, FavouritesActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(favoriteIntent)
         }
 
@@ -61,7 +65,7 @@ class ResultActivity : AppCompatActivity() {
 
     private fun performSearch(searchQuery: String) {
         lifecycleScope.launch {
-            UniversityRepository.loadUniversities(this@ResultActivity)  //todo нужно чтобы грузились со стартом приложения
+            UniversityRepository.loadUniversities(applicationContext) //todo нужно чтобы грузились со стартом приложения
 
             val allUniversities = UniversityRepository.universityList
             Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
@@ -110,9 +114,11 @@ class ResultActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         adapter = SearchAdapter { clickedItem ->
             val vusIntent = Intent(
-                this,
-                VusResultActivity::class.java
-            ).apply { putExtra("UNIVERSITY_ID", clickedItem.id) }
+                this, VusResultActivity::class.java
+            ).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                putExtra("UNIVERSITY_ID", clickedItem.id)
+            }
             startActivity(vusIntent)
 
 

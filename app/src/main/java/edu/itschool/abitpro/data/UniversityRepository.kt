@@ -9,6 +9,9 @@ import edu.itschool.abitpro.data.mapper.toHei
 import edu.itschool.abitpro.data.mapper.toHeiList
 import edu.itschool.abitpro.data.network.RetrofitClient.apiService
 import edu.itschool.abitpro.domain.model.Hei
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.Dispatcher
 import java.nio.charset.StandardCharsets
 
 object UniversityRepository {
@@ -17,24 +20,23 @@ object UniversityRepository {
     private const val PREFS_NAME = "abitpro_favorites"
     private const val KEY_FAVORITES = "favorite_ids"
 
-    suspend fun loadUniversities(context: Context) {
-        if (universityList.isNotEmpty()) return
+    suspend fun loadUniversities(context: Context) = withContext(Dispatchers.IO){
+        if (universityList.isNotEmpty()) return@withContext
+        val appContext = context.applicationContext
 
         val service = apiService
-        if (service != null) {
-            try {
-                val networkDtoList = service.getUniversities()
-                universityList = networkDtoList.toHeiList()
-                Log.i("Info9", "Данные с сервера успешно загружены! Размер: ${universityList.size}")
-                return
-            } catch (e: Exception) {
-                Log.e("Info9", "Сервер недоступен. Ошибка: ${e.message}")
-            }
+        try {
+            val networkDtoList = service.getUniversities()
+            universityList = networkDtoList.toHeiList()
+            Log.i("Info9", "Данные с сервера успешно загружены! Размер: ${universityList.size}")
+            return@withContext
+        } catch (e: Exception) {
+            Log.e("Info9", "Сервер недоступен. Ошибка: ${e.message}")
         }
 
 
         try {
-            val jsonString = context.assets.open("universities.json").use { inputStream ->
+            val jsonString = appContext.assets.open("universities.json").use { inputStream ->
                 val size = inputStream.available()
                 val buffer = ByteArray(size)
                 inputStream.read(buffer)
@@ -56,16 +58,12 @@ object UniversityRepository {
     suspend fun searchByName(query: String): List<Hei> {
 
         val service = apiService
-        if (service != null) {
-            try {
-                Log.i("NetworkSearch", "Делаем запрос к серверу для: $query")
+        try {
+            Log.i("NetworkSearch", "Делаем запрос к серверу для: $query")
 
-                return service.searchUniversities(query).toHeiList()
-            } catch (e: Exception) {
-                Log.e("NetworkSearch", "Сервер недоступен")
-
-            }
-
+            return service.searchUniversities(query).toHeiList()
+        } catch (e: Exception) {
+            Log.e("NetworkSearch", "Сервер недоступен")
 
         }
         return universityList
@@ -73,29 +71,27 @@ object UniversityRepository {
 
     suspend fun getHeiById(id: Int, context: Context): Hei? {
         val service = apiService
-        if (service != null) {
-            try {
-                Log.i("NetworkDetails", "Запрос к серверу для вуза по ID: $id")
+        try {
+            Log.i("NetworkDetails", "Запрос к серверу для вуза по ID: $id")
 
-                val dto = service.getUniversityById(id.toLong())
-                return dto.toHei()
+            val dto = service.getUniversityById(id.toLong())
+            return dto.toHei()
 
-            } catch (e: Exception) {
-                Log.e("NetworkDetails", "Сервер недоступен. Ошибка: ${e.message}")
-            }
+        } catch (e: Exception) {
+            Log.e("NetworkDetails", "Сервер недоступен. Ошибка: ${e.message}")
         }
 
         if (universityList.isEmpty()) loadUniversities(context)
         return universityList.find { it.id == id }
     }
 
-    fun getFavoritesIds(context: Context): Set<Int> {
+    suspend fun getFavoritesIds(context: Context): Set<Int> = withContext(Dispatchers.IO){
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         val stringSet = prefs.getStringSet(KEY_FAVORITES, emptySet()) ?: emptySet()
-        return stringSet.mapNotNull { it.toIntOrNull() }.toSet()
+        stringSet.mapNotNull { it.toIntOrNull() }.toSet()
     }
 
-    fun toAdRemoveFavorite(context: Context, id: Int): Boolean {
+    suspend fun toAdRemoveFavorite(context: Context, id: Int): Boolean = withContext(Dispatchers.IO){
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         val curFavorites = getFavoritesIds(context).toMutableSet()
 
@@ -107,9 +103,9 @@ object UniversityRepository {
             true
         }
 
-        val stringSet = curFavorites.map {it.toString()}.toSet()
+        val stringSet = curFavorites.map { it.toString() }.toSet()
         prefs.edit().putStringSet(KEY_FAVORITES, stringSet).apply()
-        return isNowFavorite
+        isNowFavorite
     }
 
 }
