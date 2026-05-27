@@ -14,16 +14,18 @@ import java.nio.charset.StandardCharsets
 object UniversityRepository {
     var universityList: List<Hei> = emptyList()
         private set
+    private const val PREFS_NAME = "abitpro_favorites"
+    private const val KEY_FAVORITES = "favorite_ids"
 
     suspend fun loadUniversities(context: Context) {
         if (universityList.isNotEmpty()) return
 
         val service = apiService
-        if (service != null){
+        if (service != null) {
             try {
                 val networkDtoList = service.getUniversities()
                 universityList = networkDtoList.toHeiList()
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 Log.e("Info9", "Сервер недоступен. Ошибка: ${e.message}")
             }
         }
@@ -63,10 +65,10 @@ object UniversityRepository {
             }
 
 
-
         }
         return universityList
     }
+
     suspend fun getUniversityById(id: Int, context: Context): Hei? {
         val service = apiService
         if (service != null) {
@@ -84,5 +86,30 @@ object UniversityRepository {
         if (universityList.isEmpty()) loadUniversities(context)
         return universityList.find { it.id == id }
     }
+
+    fun getFavoritesIds(context: Context): Set<Int> {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val stringSet = prefs.getStringSet(KEY_FAVORITES, emptySet()) ?: emptySet()
+        return stringSet.mapNotNull { it.toIntOrNull() }.toSet()
+    }
+
+    fun toAdRemoveFavorite(context: Context, id: Int): Boolean {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val curFavorites = getFavoritesIds(context).toMutableSet()
+
+        val isNowFavorite = if (curFavorites.contains(id)) {
+            curFavorites.remove(id)
+            false
+        } else {
+            curFavorites.add(id)
+            true
+        }
+
+        val stringSet = curFavorites.map {it.toString()}.toSet()
+        prefs.edit().putStringSet(KEY_FAVORITES, stringSet).apply()
+        return isNowFavorite
+    }
+
 }
+
 
