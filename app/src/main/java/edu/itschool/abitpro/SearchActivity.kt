@@ -54,7 +54,7 @@ class SearchActivity : AppCompatActivity() {
             "Долгопрудный",
             "Санкт-Петербург"
         )
-        val programsAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, defPrograms)
+        val programsAdapter = ArrayAdapter(this, R.layout.prefab_list_item_1, defPrograms)
         val listFields = listOf(
             binding.table11.text, binding.table12.text, binding.table13.text, binding.table14.text
         ).forEach { curTv ->
@@ -76,7 +76,7 @@ class SearchActivity : AppCompatActivity() {
             }
 
         }
-        val citiesAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, defCity)
+        val citiesAdapter = ArrayAdapter(this, R.layout.prefab_list_item_1, defCity)
         val cityPopupWindow = ListPopupWindow(this).apply {
             setAdapter(citiesAdapter)
 
