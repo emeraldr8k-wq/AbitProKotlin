@@ -84,6 +84,7 @@ object UniversityRepository {
         } catch (e: Exception) {
             Log.e("NetworkDetails", "Сервер недоступен. Ошибка: ${e.message}")
         }
+        Log.i("Info9", "getHeiById")
 
         if (universityList.isEmpty()) loadUniversities(context)
         return universityList.find { it.id == id }
@@ -124,31 +125,92 @@ object UniversityRepository {
         course: Int,
         city: String,
         warCaf: Boolean
-    ): List<Hei> = withContext(Dispatchers.Default){
-
+    ): List<Hei> = withContext(Dispatchers.Default) {
 
         val allUniversities = universityList
-        Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
+        Log.i("Info9", "Фильтрация началась. Всего вузов в репозитории: ${allUniversities.size}")
 
-        allUniversities.filter { vus ->
+
+        var isFirstVuzLogged = false
+
+        val result = allUniversities.filter { vus ->
             val matchesName =
                 searchQuery.isEmpty() || vus.name.contains(searchQuery, ignoreCase = true)
+
             val vusProgramsSet = vus.programs.map { it.lowercase() }.toSet()
             val matchPrograms = listPrograms.isEmpty() || listPrograms.any { userProgram ->
                 vusProgramsSet.contains(userProgram.lowercase())
             }
-            val matchesBudgBall = budgBall == -1 || (vus.freePassingGrade ?: 0) <= budgBall
-            val matchesBudgPlace = budgPlace == -1 || (vus.freePlace ?: 0) >= budgPlace
-            val matchesPayBall = payBall == -1 || (vus.payPassingGrade ?: 0) <= payBall
-            val matchesPayPlace = payPlace == -1 || (vus.payPlace ?: 0) >= payPlace
-            val matchesCost = cost == -1 || (vus.cost ?: 0) <= cost
-            val matchesCourse = course == -1 || (vus.introCoursesPrice ?: 0) <= course
+
+            val matchesBudgBall =
+                budgBall == -1 || vus.freePassingGrade == -1 || vus.freePassingGrade <= budgBall
+            val matchesBudgPlace =
+                budgPlace == -1 || vus.freePlace == -1 || vus.freePlace >= budgPlace
+
+            val matchesPayBall =
+                payBall == -1 || vus.payPassingGrade == -1 || vus.payPassingGrade <= payBall
+            val matchesPayPlace = payPlace == -1 || vus.payPlace == -1 || vus.payPlace >= payPlace
+
+            val matchesCost = cost == -1 || vus.cost == -1 || vus.cost <= cost
+            val matchesCourse =
+                course == -1 || vus.introCoursesPrice == -1 || vus.introCoursesPrice <= course
+
             val matchesCity = city.isEmpty() || vus.city.contains(city, ignoreCase = true)
             val matchesWarCaf = vus.isMilitary == warCaf
 
 
+            if (!isFirstVuzLogged) {
+                isFirstVuzLogged = true
+                Log.w("FilterDebug", "========================================")
+                Log.w("FilterDebug", "АНАЛИЗ ФИЛЬТРАЦИИ НА ПРИМЕРЕ ВУЗА: ${vus.name}")
+                Log.i(
+                    "FilterDebug",
+                    "1. Имя: $matchesName (Запрос: '$searchQuery', Вуз: '${vus.name}')"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "2. Программы: $matchPrograms (Искали: $listPrograms, У вуза: ${vus.programs})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "3. Бюдж. балл: $matchesBudgBall (Введено: $budgBall, У вуза: ${vus.freePassingGrade})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "4. Бюдж. места: $matchesBudgPlace (Введено: $budgPlace, У вуза: ${vus.freePlace})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "5. Платн. балл: $matchesPayBall (Введено: $payBall, У вуза: ${vus.payPassingGrade})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "6. Платн. места: $matchesPayPlace (Введено: $payPlace, У вуза: ${vus.payPlace})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "7. Стоимость: $matchesCost (Введено: $cost, У вуза: ${vus.cost})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "8. Цена курсов: $matchesCourse (Введено: $course, У вуза: ${vus.introCoursesPrice})"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "9. Город: $matchesCity (Введено: '$city', У вуза: '${vus.city}')"
+                )
+                Log.i(
+                    "FilterDebug",
+                    "10. Воен. кафедра: $matchesWarCaf (Нужна: $warCaf, У вуза: ${vus.isMilitary})"
+                )
+                Log.w("FilterDebug", "========================================")
+            }
+
             matchesName && matchesBudgBall && matchesBudgPlace && matchesPayBall && matchesPayPlace && matchesCity && matchesCourse && matchesCost && matchesWarCaf && matchPrograms
         }
+
+        Log.i("Info9", "Фильтрация завершена. Найдено вузов: ${result.size}")
+        return@withContext result
     }
 
 }

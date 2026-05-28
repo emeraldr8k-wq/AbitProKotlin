@@ -55,7 +55,7 @@ class SearchActivity : AppCompatActivity() {
             "Санкт-Петербург"
         )
         val programsAdapter = ArrayAdapter(this, R.layout.prefab_list_item_1, defPrograms)
-        val listFields = listOf(
+        listOf(
             binding.table11.text, binding.table12.text, binding.table13.text, binding.table14.text
         ).forEach { curTv ->
             val programPopupWindow = ListPopupWindow(this).apply {
@@ -63,8 +63,8 @@ class SearchActivity : AppCompatActivity() {
 
                 anchorView = curTv
 
-                setOnItemClickListener { _, _, _, position ->
-                    val chosenProgram = defPrograms[position.toInt()]
+                setOnItemClickListener { _, _, position, _ ->
+                    val chosenProgram = defPrograms[position]
                     curTv.text = chosenProgram
                     dismiss()
                 }
@@ -82,8 +82,8 @@ class SearchActivity : AppCompatActivity() {
 
             anchorView = binding.cityValueParam.text
 
-            setOnItemClickListener { _, _, _, position ->
-                val chosenCity = defCity[position.toInt()]
+            setOnItemClickListener { _, _, position, _ ->
+                val chosenCity = defCity[position]
                 binding.cityValueParam.text.text = chosenCity
                 dismiss()
             }
@@ -102,9 +102,9 @@ class SearchActivity : AppCompatActivity() {
                 binding.table12.text.text.toString().trim(),
                 binding.table13.text.text.toString().trim(),
                 binding.table14.text.text.toString().trim()
-            ).filter {
-                it != getString(R.string.load2).trim() && it != getString(R.string.def_val_pop_up_window)
-            } as ArrayList<String>  // todo заменить на стандартное поле для напрвлений
+            ).filterTo(ArrayList()) {
+                it != getString(R.string.select_type).trim() && it != getString(R.string.def_val_pop_up_window)
+            }  // todo заменить на стандартное поле для напрвлений
 
             val budgBall = binding.budgBallValueEntry.num.text.toString().trim().toIntOrNull()
             val budgPlace = binding.budgPlaceValueEntry.num.text.toString().trim().toIntOrNull()
@@ -113,7 +113,7 @@ class SearchActivity : AppCompatActivity() {
             val cost = binding.paidCostValueEntry.priceParam.text.toString().trim().toIntOrNull()
             val course = binding.coursesValueParam.priceParam.text.toString().trim().toIntOrNull()
             val city = if ((binding.cityValueParam.text.text.toString().trim() != getString(R.string.def_val_pop_up_window)) &&
-                (binding.cityValueParam.text.text.toString().trim() != getString(R.string.load2).trim())
+                (binding.cityValueParam.text.text.toString().trim() != getString(R.string.select_type).trim())
             ) {
                 binding.cityValueParam.text.text.toString().trim()
             } else {
