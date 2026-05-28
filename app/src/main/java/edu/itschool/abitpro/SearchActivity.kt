@@ -3,8 +3,10 @@ package edu.itschool.abitpro
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ListPopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import edu.itschool.abitpro.databinding.ActivitySearchBinding
 
@@ -26,8 +28,72 @@ class SearchActivity : AppCompatActivity() {
             startActivity(favoriteIntent)
         }
 
+
         val editText: EditText = binding.searchEntry.searchByNameEntry
         val btn: ImageButton = binding.searchEntry.searchButton
+        val defPrograms = listOf(
+            getString(R.string.def_val_pop_up_window),
+            "Бизнес-информатика",
+            "Программная инженерия",
+            "Экономика",
+            "Менеджмент",
+            "Прикладная математика",
+            "Физика",
+            "Химия",
+            "Биология",
+            "Юриспруденция",
+            "Информатика",
+            "Биоинформатика",
+            "Фундаментальная информатика",
+            "Математика"
+        )
+        val defCity = listOf(
+            getString(R.string.def_val_pop_up_window),
+            "Москва",
+            "Новосибирск",
+            "Долгопрудный",
+            "Санкт-Петербург"
+        )
+        val programsAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, defPrograms)
+        val listFields = listOf(
+            binding.table11.text, binding.table12.text, binding.table13.text, binding.table14.text
+        ).forEach { curTv ->
+            val programPopupWindow = ListPopupWindow(this).apply {
+                setAdapter(programsAdapter)
+
+                anchorView = curTv
+
+                setOnItemClickListener { _, _, _, position ->
+                    val chosenProgram = defPrograms[position.toInt()]
+                    curTv.text = chosenProgram
+                    dismiss()
+                }
+
+
+            }
+            curTv.setOnClickListener {
+                programPopupWindow.show()
+            }
+
+        }
+        val citiesAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, defCity)
+        val cityPopupWindow = ListPopupWindow(this).apply {
+            setAdapter(citiesAdapter)
+
+            anchorView = binding.cityValueParam.text
+
+            setOnItemClickListener { _, _, _, position ->
+                val chosenCity = defCity[position.toInt()]
+                binding.cityValueParam.text.text = chosenCity
+                dismiss()
+            }
+
+
+        }
+        binding.cityValueParam.text.setOnClickListener {
+            cityPopupWindow.show()
+        }
+
 
         btn.setOnClickListener {
             val query = editText.text.toString()
@@ -36,7 +102,9 @@ class SearchActivity : AppCompatActivity() {
                 binding.table12.text.text.toString().trim(),
                 binding.table13.text.text.toString().trim(),
                 binding.table14.text.text.toString().trim()
-            ).filter { it.isNotEmpty() } as ArrayList<String>
+            ).filter {
+                it != getString(R.string.load2).trim() && it != getString(R.string.def_val_pop_up_window)
+            } as ArrayList<String>  // todo заменить на стандартное поле для напрвлений
 
             val budgBall = binding.budgBallValueEntry.num.text.toString().trim().toIntOrNull()
             val budgPlace = binding.budgPlaceValueEntry.num.text.toString().trim().toIntOrNull()
@@ -44,7 +112,13 @@ class SearchActivity : AppCompatActivity() {
             val payPlace = binding.paidPlacesValueEntry.num.text.toString().trim().toIntOrNull()
             val cost = binding.paidCostValueEntry.priceParam.text.toString().trim().toIntOrNull()
             val course = binding.coursesValueParam.priceParam.text.toString().trim().toIntOrNull()
-            val city = binding.cityValueParam.text.text.toString().trim()
+            val city = if ((binding.cityValueParam.text.text.toString().trim() != getString(R.string.def_val_pop_up_window)) &&
+                (binding.cityValueParam.text.text.toString().trim() != getString(R.string.load2).trim())
+            ) {
+                binding.cityValueParam.text.text.toString().trim()
+            } else {
+                ""
+            }
             val warCaf = binding.checkBox.isChecked
 
             Log.i("Info9", "query = $query")

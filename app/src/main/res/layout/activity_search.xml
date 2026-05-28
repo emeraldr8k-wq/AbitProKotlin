@@ -74,7 +74,7 @@
 
                     <include
                         android:id="@+id/table1_1"
-                        layout="@layout/value_text_param"
+                        layout="@layout/value_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
@@ -82,7 +82,7 @@
 
                     <include
                         android:id="@+id/table1_2"
-                        layout="@layout/value_text_param"
+                        layout="@layout/value_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
@@ -90,14 +90,14 @@
 
                     <include
                         android:id="@+id/table1_3"
-                        layout="@layout/value_text_param"
+                        layout="@layout/value_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:layout_weight="1" />
                     <include
                         android:id="@+id/table1_4"
-                        layout="@layout/value_text_param"
+                        layout="@layout/value_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
@@ -261,7 +261,7 @@
                     android:textSize="16sp" />
                 <include
                     android:id="@+id/city_value_param"
-                    layout="@layout/value_text_param"
+                    layout="@layout/value_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"/>

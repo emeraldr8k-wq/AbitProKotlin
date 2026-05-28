@@ -92,9 +92,15 @@ class ResultActivity : AppCompatActivity() {
 
 
                 UniversityRepository.getFilteredUniversities(
-                    searchQuery = searchQuery, listPrograms = listPrograms,
-                    budgPlace = budgPlace, budgBall = budgBall, payBall = payBall,
-                    payPlace = payPlace, city = city, cost = cost, course = course,
+                    searchQuery = searchQuery,
+                    listPrograms = listPrograms,
+                    budgPlace = budgPlace,
+                    budgBall = budgBall,
+                    payBall = payBall,
+                    payPlace = payPlace,
+                    city = city,
+                    cost = cost,
+                    course = course,
                     warCaf = warCaf
                 )
 
