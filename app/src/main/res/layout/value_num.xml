@@ -6,6 +6,6 @@
     android:padding="5dp"
     android:gravity="center"
     android:background="@drawable/param_background2"
-    android:text="@string/default1"
+    android:text="@string/load1"
     android:textColor="@color/DWhite1"
     android:textSize="12sp"/>

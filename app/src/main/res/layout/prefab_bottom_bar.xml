@@ -13,23 +13,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bottomButton_profile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/bottom_bar_button_background"
-            android:insetLeft="0dp"
-            android:insetRight="0dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:padding="0dp"
-            app:backgroundTint="@null"
-            app:icon="@drawable/image_profile"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconTint="@color/DWhite1"/>
+    <ImageButton
+        android:id="@+id/bottomButton_favourites"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bottom_bar_button_background"
+        android:src="@drawable/image_heart_default"
+        android:scaleType="centerInside"
+        android:padding="14dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bottomButton_search"

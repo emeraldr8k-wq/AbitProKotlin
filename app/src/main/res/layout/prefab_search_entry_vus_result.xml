@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:baselineAligned="false"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/searchEntryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/searchEntryLeftView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/search_entry_left">
+
+            <EditText
+                android:layout_gravity="center_vertical"
+                android:id="@+id/searchByName_entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:autofillHints="name"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:inputType="textCapCharacters"
+                android:hint="@string/search_entry_text"
+                android:textColor="@color/DForeground1"
+                android:textColorHint="@color/DForeground1"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/search_entry_right">
+
+            <ImageButton
+                android:id="@+id/search_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/image_heart_default"
+                android:scaleType="centerInside"
+                android:padding="18dp" />
+        </FrameLayout>
+</LinearLayout>
