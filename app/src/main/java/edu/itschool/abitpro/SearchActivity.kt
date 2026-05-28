@@ -19,7 +19,7 @@ class SearchActivity : AppCompatActivity() {
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomBar.bottomButtonProfile.setOnClickListener {
+        binding.bottomBar.bottomButtonFavourites.setOnClickListener {
             val favoriteIntent = Intent(this, FavouritesActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             }
