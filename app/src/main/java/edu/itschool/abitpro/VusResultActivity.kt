@@ -45,7 +45,7 @@ class VusResultActivity : AppCompatActivity() {
                     Log.e("Info9", "Ошибка загрузки вуза", e)
                 }
 
-                val favBtn = binding.searchEntry.searchButton //todo заменить на кнопку избранных
+                val favBtn = binding.searchEntry.searchButton
 
                 var isFavorite =
                     UniversityRepository.getFavoritesIds(applicationContext).contains(heiId)

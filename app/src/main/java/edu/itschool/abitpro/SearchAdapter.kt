@@ -3,28 +3,28 @@ package edu.itschool.abitpro
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import edu.itschool.abitpro.SearchAdapter.SearchViewHolder
+import edu.itschool.abitpro.databinding.PrefabResultBinding
 import edu.itschool.abitpro.domain.model.Hei
 
 class SearchAdapter(
     private val onItemClick: (Hei) -> Unit
-) : ListAdapter<Hei, SearchViewHolder>(DiffCallback()) {
+) : ListAdapter<Hei, SearchAdapter.SearchViewHolder>(DiffCallback()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): SearchViewHolder {
         Log.i("Info9", "onCreateViewHolder")
 
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.prefab_result, parent, false)
-
-        return SearchViewHolder(view)
+        val binding = PrefabResultBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return SearchViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
@@ -32,26 +32,18 @@ class SearchAdapter(
         holder.bind(curItem, onItemClick)
     }
 
-    class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val titleText: TextView = itemView.findViewById(R.id.vuz_name)
-        private val budgBall: TextView = itemView.findViewById(R.id.budg_ball)
-
-        private val budgPlace: TextView = itemView.findViewById(R.id.budg_place)
-
-        private val paidBall: TextView = itemView.findViewById(R.id.paid_ball)
-
-        private val paidPlace: TextView = itemView.findViewById(R.id.paid_places)
-        private val cost: TextView = itemView.findViewById(R.id.cost_value)
-
+    class SearchViewHolder(
+        private val binding: PrefabResultBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Hei, onItemClick: (Hei) -> Unit) {
-            titleText.text = item.name
-            budgBall.text = item.freePassingGrade.toString()
-            budgPlace.text = item.freePlace.toString()
-            paidBall.text = item.payPassingGrade.toString()
-            paidPlace.text = item.payPlace.toString()
-            cost.text = item.cost.toString()
+            binding.vuzName.text = item.name
+            binding.budgBall.text = item.freePassingGrade.toString()
+            binding.budgPlace.text = item.freePlace.toString()
+            binding.paidBall.text = item.payPassingGrade.toString()
+            binding.paidPlaces.text = item.payPlace.toString()
+            binding.costValue.text = item.cost.toString()
 
-            itemView.setOnClickListener {
+            binding.root.setOnClickListener {
 
                 Log.i("Info9", "bind")
 
