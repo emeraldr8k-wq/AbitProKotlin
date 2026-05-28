@@ -7,20 +7,17 @@ android:orientation="horizontal"
 android:background="@drawable/param_background2"
 android:layout_margin="4dp">
 
-<EditText
+<TextView
     android:id="@android:id/text1"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:inputType="text"
-    android:autofillHints="name"
+
     android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:padding="5dp"
     android:gravity="center"
-    android:hint="@string/typing_way"
-    android:textColorHint="@color/DWhite1"
+    android:text="@string/load3"
     android:textColor="@color/DWhite1"
     android:textSize="12sp" />
 </LinearLayout>
