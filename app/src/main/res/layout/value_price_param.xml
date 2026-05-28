@@ -5,20 +5,19 @@
     android:background="@drawable/param_background2"
     android:orientation="horizontal"
     android:gravity="center_vertical">
-
     <EditText
         android:id="@+id/price_param"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:autofillHints="name"
         android:background="@android:color/transparent"
-        android:ems="5"
-        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
         android:hint="@string/default1"
-        android:inputType="numberDecimal"
-        android:textColor="@color/DForeground1"
         android:textColorHint="@color/DWhite1"
-        android:textAlignment="center"/>
+        android:textColor="@color/DWhite1"
+        android:textSize="12sp" />
 
     <TextView
         android:layout_width="wrap_content"
