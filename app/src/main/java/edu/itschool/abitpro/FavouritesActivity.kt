@@ -40,6 +40,7 @@ class FavouritesActivity : AppCompatActivity() {
             val resultIntent = Intent(this, ResultActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 putExtra("SEARCH_QUERY", query)
+                putExtra("FROM_SCREEN", "FAST_SEARCH")
             }
 
             startActivity(resultIntent)

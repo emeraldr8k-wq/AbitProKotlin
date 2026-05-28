@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
     private var adapter: SearchAdapter? = null
+    private var curSearchMode = "FAST_SEARCH"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +46,9 @@ class ResultActivity : AppCompatActivity() {
 
         setupRecyclerView()
 
-        val searchQuery = intent.getStringExtra("SEARCH_QUERY") ?: ""
+        val searchQuery = intent.getStringExtra("SEARCH_QUERY") ?: "FAST_SEARCH"
+
+        curSearchMode = intent.getStringExtra("FROM_SCREEN") ?: ""
         Log.i("Info9", "Получен поисковый запрос: ${searchQuery}")
         if (searchQuery.isNotEmpty()) {
             binding.searchEntry.searchByNameEntry.setText(searchQuery)
@@ -57,6 +60,8 @@ class ResultActivity : AppCompatActivity() {
 
         binding.searchEntry.searchButton.setOnClickListener {
             val curQuery = binding.searchEntry.searchByNameEntry.text.toString().trim()
+
+            curSearchMode = "FAST_SEARCH"
             performSearch(curQuery)
         }
 
@@ -65,48 +70,37 @@ class ResultActivity : AppCompatActivity() {
 
     private fun performSearch(searchQuery: String) {
         lifecycleScope.launch {
-            UniversityRepository.loadUniversities(applicationContext) //todo нужно чтобы грузились со стартом приложения
+            UniversityRepository.loadUniversities(applicationContext)
 
-            val allUniversities = UniversityRepository.universityList
-            Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
+            val listHei = if (curSearchMode == "FAST_SEARCH") {
+                Log.i("Info9", "Выполняется поиск по названию: $searchQuery")
+                UniversityRepository.searchByName(searchQuery)
+            } else {
 
-            val listPrograms = intent.getStringArrayListExtra("KEY_PROGRAMS") ?: emptyList()
-            val budgBall = intent.getIntExtra("KEY_budgBall", -1)
-            val budgPlace = intent.getIntExtra("KEY_budgPlace", -1)
-            val payBall = intent.getIntExtra("KEY_payBall", -1)
-            val payPlace = intent.getIntExtra("KEY_payPlace", -1)
-            val cost = intent.getIntExtra("KEY_cost", -1)
-            val course = intent.getIntExtra("KEY_course", -1)
-            val city = intent.getStringExtra("KEY_city") ?: ""
-            val warCaf = intent.getBooleanExtra("KEY_warCaf", false)
+                val allUniversities = UniversityRepository.universityList
+                Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
+
+                val listPrograms = intent.getStringArrayListExtra("KEY_PROGRAMS") ?: emptyList()
+                val budgBall = intent.getIntExtra("KEY_budgBall", -1)
+                val budgPlace = intent.getIntExtra("KEY_budgPlace", -1)
+                val payBall = intent.getIntExtra("KEY_payBall", -1)
+                val payPlace = intent.getIntExtra("KEY_payPlace", -1)
+                val cost = intent.getIntExtra("KEY_cost", -1)
+                val course = intent.getIntExtra("KEY_course", -1)
+                val city = intent.getStringExtra("KEY_city") ?: ""
+                val warCaf = intent.getBooleanExtra("KEY_warCaf", false)
 
 
-            val listHei = allUniversities.filter { vus ->
-                val matchesName = searchQuery.isEmpty() || vus.name.contains(
-                    searchQuery, ignoreCase = true
+                UniversityRepository.getFilteredUniversities(
+                    searchQuery = searchQuery, listPrograms = listPrograms,
+                    budgPlace = budgPlace, budgBall = budgBall, payBall = payBall,
+                    payPlace = payPlace, city = city, cost = cost, course = course,
+                    warCaf = warCaf
                 )
 
 
-                val vusProgramsSet = vus.programs.map { it.lowercase() }.toSet()
-                val matchPrograms = listPrograms.isEmpty() || listPrograms.any { userProgram ->
-                    vusProgramsSet.contains(userProgram.lowercase())
-                }
-                Log.i("Info9", "${vus.name} Направления ${vus.programs} \t $listPrograms")
-                val matchesBudgBall = budgBall == -1 || (vus.freePassingGrade ?: 0) <= budgBall
-                Log.i("Info9", "Бюдженый балл ${vus.freePassingGrade} \t $budgBall")
-                val matchesBudgPlace = budgPlace == -1 || (vus.freePlace ?: 0) >= budgPlace
-                val matchesPayBall = payBall == -1 || (vus.payPassingGrade ?: 0) <= payBall
-                val matchesPayPlace = payPlace == -1 || (vus.payPlace ?: 0) >= payPlace
-                val matchesCost = cost == -1 || (vus.cost ?: 0) <= cost
-                val matchesCourse = course == -1 || (vus.introCoursesPrice ?: 0) <= course
-                val matchesCity = city.isEmpty() || vus.city.contains(city, ignoreCase = true)
-                val matchesWarCaf = vus.isMilitary == warCaf
-
-                matchesName && matchesBudgBall && matchesBudgPlace && matchesPayBall && matchesPayPlace && matchesCity && matchesCourse && matchesCost && matchesWarCaf && matchPrograms
             }
-            Log.i("Info9", "Фильтрация завершена. Найдено вузов: ${listHei.size}")
             adapter?.submitList(listHei)
-
         }
     }
 

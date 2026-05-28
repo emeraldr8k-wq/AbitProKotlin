@@ -51,6 +51,7 @@ class SearchActivity : AppCompatActivity() {
 
             val intent = Intent(this, ResultActivity::class.java).apply {
                 putExtra("SEARCH_QUERY", query)
+                putExtra("FROM_SCREEN", "ADVANCED_SEARCH")
                 putStringArrayListExtra("KEY_PROGRAMS", listPrograms)
                 putExtra("KEY_budgBall", budgBall)
                 putExtra("KEY_budgPlace", budgPlace)

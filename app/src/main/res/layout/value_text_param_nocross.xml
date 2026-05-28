@@ -22,7 +22,7 @@
             android:autofillHints="name"
             android:background="@android:color/transparent"
             android:textSize="12sp"
-            android:hint="@string/default2"
+            android:hint="@string/load1"
             android:inputType="text"
             android:textColor="@color/DForeground1"
             android:textColorHint="@color/DWhite1"
