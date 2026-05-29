@@ -162,7 +162,7 @@ object UniversityRepository {
             if (!isFirstVuzLogged) {
                 isFirstVuzLogged = true
                 Log.w("FilterDebug", "========================================")
-                Log.w("FilterDebug", "АНАЛИЗ ФИЛЬТРАЦИИ НА ПРИМЕРЕ ВУЗА: ${vus.name}")
+                Log.w("FilterDebug", "${vus.name}")
                 Log.i(
                     "FilterDebug",
                     "1. Имя: $matchesName (Запрос: '$searchQuery', Вуз: '${vus.name}')"
@@ -173,15 +173,15 @@ object UniversityRepository {
                 )
                 Log.i(
                     "FilterDebug",
-                    "3. Бюдж. балл: $matchesBudgBall (Введено: $budgBall, У вуза: ${vus.freePassingGrade})"
+                    "3. Бюдж балл: $matchesBudgBall (Введено: $budgBall, У вуза: ${vus.freePassingGrade})"
                 )
                 Log.i(
                     "FilterDebug",
-                    "4. Бюдж. места: $matchesBudgPlace (Введено: $budgPlace, У вуза: ${vus.freePlace})"
+                    "4. Бюдж места: $matchesBudgPlace (Введено: $budgPlace, У вуза: ${vus.freePlace})"
                 )
                 Log.i(
                     "FilterDebug",
-                    "5. Платн. балл: $matchesPayBall (Введено: $payBall, У вуза: ${vus.payPassingGrade})"
+                    "5. Платн балл: $matchesPayBall (Введено: $payBall, У вуза: ${vus.payPassingGrade})"
                 )
                 Log.i(
                     "FilterDebug",
@@ -201,7 +201,7 @@ object UniversityRepository {
                 )
                 Log.i(
                     "FilterDebug",
-                    "10. Воен. кафедра: $matchesWarCaf (Нужна: $warCaf, У вуза: ${vus.isMilitary})"
+                    "10. Воен кафедра: $matchesWarCaf (Нужна: $warCaf, У вуза: ${vus.isMilitary})"
                 )
                 Log.w("FilterDebug", "========================================")
             }
