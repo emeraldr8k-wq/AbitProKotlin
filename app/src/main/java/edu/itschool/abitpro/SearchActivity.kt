@@ -104,7 +104,7 @@ class SearchActivity : AppCompatActivity() {
                 binding.table14.text.text.toString().trim()
             ).filterTo(ArrayList()) {
                 it != getString(R.string.select_type).trim() && it != getString(R.string.def_val_pop_up_window)
-            }  // todo заменить на стандартное поле для напрвлений
+            }
 
             val budgBall = binding.budgBallValueEntry.num.text.toString().trim().toIntOrNull()
             val budgPlace = binding.budgPlaceValueEntry.num.text.toString().trim().toIntOrNull()
