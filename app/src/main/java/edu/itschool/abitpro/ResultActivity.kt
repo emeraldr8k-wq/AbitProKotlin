@@ -3,6 +3,7 @@ package edu.itschool.abitpro
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -70,6 +71,8 @@ class ResultActivity : AppCompatActivity() {
 
     private fun performSearch(searchQuery: String) {
         lifecycleScope.launch {
+            binding.progressBar.visibility = View.VISIBLE
+            adapter?.submitList(emptyList())
             UniversityRepository.loadUniversities(applicationContext)
 
             val listHei = if (curSearchMode == "FAST_SEARCH") {
@@ -107,6 +110,7 @@ class ResultActivity : AppCompatActivity() {
 
             }
             adapter?.submitList(listHei)
+            binding.progressBar.visibility = View.GONE
         }
     }
 
