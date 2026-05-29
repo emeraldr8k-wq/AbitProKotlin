@@ -73,6 +73,8 @@ class ResultActivity : AppCompatActivity() {
         lifecycleScope.launch {
             binding.progressBar.visibility = View.VISIBLE
             adapter?.submitList(emptyList())
+            binding.searchRes.text = getString(R.string.search_result)
+
             UniversityRepository.loadUniversities(applicationContext)
 
             val listHei = if (curSearchMode == "FAST_SEARCH") {
@@ -111,6 +113,7 @@ class ResultActivity : AppCompatActivity() {
             }
             adapter?.submitList(listHei)
             binding.progressBar.visibility = View.GONE
+            if (listHei.isEmpty()) binding.searchRes.text = getString(R.string.empty_result)
         }
     }
 
