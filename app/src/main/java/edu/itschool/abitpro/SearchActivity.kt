@@ -56,7 +56,7 @@ class SearchActivity : AppCompatActivity() {
         )
         val programsAdapter = ArrayAdapter(this, R.layout.prefab_list_item_1, defPrograms)
         listOf(
-            binding.table11.text, binding.table12.text, binding.table13.text, binding.table14.text
+            binding.table11.text, binding.table12.text, binding.table13.text
         ).forEach { curTv ->
             val programPopupWindow = ListPopupWindow(this).apply {
                 setAdapter(programsAdapter)
