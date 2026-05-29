@@ -56,6 +56,7 @@
     <string name="no">Нет</string>
     <string name="course">c %1$d курса</string>
     <string name="def_val_pop_up_window">-</string>
+    <string name="empty_result">Ничего не найдено</string>
 
 
 </resources>
