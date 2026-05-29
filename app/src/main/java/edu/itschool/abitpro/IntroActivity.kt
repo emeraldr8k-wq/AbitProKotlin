@@ -20,7 +20,9 @@ class IntroActivity : AppCompatActivity() {
 
         binding.startSearchButton.setOnClickListener {
             Log.i("Info9", "клик")
-            val searchIntent = Intent(this, SearchActivity::class.java).apply { }
+            val searchIntent = Intent(this, SearchActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
             startActivity(searchIntent)
             finish()
         }

@@ -82,8 +82,6 @@ class ResultActivity : AppCompatActivity() {
                 UniversityRepository.searchByName(searchQuery)
             } else {
 
-                val allUniversities = UniversityRepository.universityList
-                Log.i("Info9", "Фильтрация началась. Найдено вузов: ${allUniversities.size}")
 
                 val listPrograms = intent.getStringArrayListExtra("KEY_PROGRAMS") ?: emptyList()
                 val budgBall = intent.getIntExtra("KEY_budgBall", -1)

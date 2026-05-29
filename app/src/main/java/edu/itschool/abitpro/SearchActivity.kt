@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ListPopupWindow
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import edu.itschool.abitpro.databinding.ActivitySearchBinding
 
@@ -17,6 +18,7 @@ class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.enableEdgeToEdge()
 
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import edu.itschool.abitpro.data.UniversityRepository
@@ -15,7 +16,10 @@ class VusResultActivity : AppCompatActivity() {
     private val binding by lazy { ActivityVusResultBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.enableEdgeToEdge()
         setContentView(binding.root)
+
+        val favBtn = binding.searchEntry.searchButton
 
         binding.bottomBar.bottomButtonSearch.setOnClickListener {
             val searchIntent = Intent(this, SearchActivity::class.java).apply {
@@ -37,6 +41,7 @@ class VusResultActivity : AppCompatActivity() {
 
 
         if (heiId != -1) {
+
             lifecycleScope.launch {
                 try {
                     val selectedHei = UniversityRepository.getHeiById(heiId, applicationContext)
@@ -44,22 +49,21 @@ class VusResultActivity : AppCompatActivity() {
                 } catch (e: Exception) {
                     Log.e("Info9", "Ошибка загрузки вуза", e)
                 }
-
-                val favBtn = binding.searchEntry.searchButton
-
-                var isFavorite =
+                val isFavorite =
                     UniversityRepository.getFavoritesIds(applicationContext).contains(heiId)
                 updateFavBtnIcon(favBtn, isFavorite)
 
-                favBtn.setOnClickListener {
-                    lifecycleScope.launch {
-                        isFavorite =
-                            UniversityRepository.toAdRemoveFavorite(applicationContext, heiId)
-                        updateFavBtnIcon(favBtn, isFavorite)
-                    }
 
-                }
             }
+            favBtn.setOnClickListener {
+                lifecycleScope.launch {
+                    val isNowFavorite =
+                        UniversityRepository.toAdRemoveFavorite(applicationContext, heiId)
+                    updateFavBtnIcon(favBtn, isNowFavorite)
+                }
+
+            }
+
         }
 
 
